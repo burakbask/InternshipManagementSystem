@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ahmet mehmet
+          umut barış ürem
         </a>
       </header>
     </div>
