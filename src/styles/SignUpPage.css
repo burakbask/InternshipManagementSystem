@@ -1,3 +1,9 @@
+
+.signup-but{
+  background-color: #9A1220;
+}
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -97,7 +103,7 @@
   
   
   .signup-button:hover {
-    background-color: green;
+    background-color: grey;
   }
   
   
