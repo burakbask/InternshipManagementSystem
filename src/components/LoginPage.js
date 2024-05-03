@@ -21,7 +21,9 @@ function LoginPage() {
       });
   
       if (response.status === 200) {
-        navigate('/home'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
+        setMessage('The login is successful. You are redirected to homepage..');
+        setIsError(false);
+        setTimeout(() => navigate('/home'), 1000); // 2 saniye sonra yönlendirme
       } else {
         setMessage('Login failed. Please check your details.');
         setIsError(true);
