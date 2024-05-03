@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // useNavigate'i dahil edin
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/LoginPage.css';
 import logo from '../assets/iyte_logo-tur.png';
 import axios from 'axios';
 
 function LoginPage() {
-  const navigate = useNavigate(); // useNavigate hook'ını kullanarak değişken oluşturun
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,12 +21,14 @@ function LoginPage() {
       });
   
       if (response.status === 200) {
-        navigate('/StudentHome'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
+        navigate('/home'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
       } else {
-        console.error('Giriş başarısız');
+        setMessage('Login failed. Please check your details.');
+        setIsError(true);
       }
     } catch (error) {
-      console.error('Giriş başarısız:', error);
+      setMessage('Login failed. Please check your details.');
+      setIsError(true);
     }
   };
 
@@ -36,7 +40,9 @@ function LoginPage() {
         <Link to="/signup" className="signup-button">Sign Up</Link>
       </nav>
       <div className="login-form-container">
+        
         <form onSubmit={handleSubmit}>
+        {message && <div className={isError ? "error-message" : "success-message"}>{message}</div>}
           <div className="input-group">
             <label htmlFor="email">Email:</label>
             <input 
