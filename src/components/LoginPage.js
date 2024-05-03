@@ -12,20 +12,29 @@ function LoginPage() {
     
     try {
       // API'ye email ve password göndererek giriş yap
-      // Giriş başarılı olduğunu varsayalım
-      
+      const response = await fetch('api_login_endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }), // Gönderilecek verileri JSON formatında string'e dönüştürür
+      });
+
+      // API'den gelen yanıtı JSON formatında alır
+      const data = await response.json();
+
       // Başarılı giriş sonrası sayfa yönlendirmesi
-      if (email === 'example@example.com' && password === 'password') {
-        // Örnek olarak başarılı girişte '/dashboard' sayfasına yönlendiriyoruz
+      if (response.ok) {
+        // Örnek olarak başarılı girişte '/home' sayfasına yönlendiriyoruz
         window.location.href = '/home';
       } else {
         // Hatalı giriş durumunda
-        console.error('Giriş başarısız');
+        console.error('Giriş başarısız:', data.error);
       }
     } catch (error) {
       console.error('Giriş başarısız:', error);
     }
-  };
+};
 
   return (
     <div>
