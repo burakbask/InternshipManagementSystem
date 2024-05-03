@@ -18,6 +18,8 @@
   font-weight: bold;
   display: inline-block;
   margin: auto;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
 }
 
 .login-form-container {
@@ -25,16 +27,19 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 120px);
-  background-color: #c3bfbf; 
-   /* Resminizi buraya ekleyin */
-  /* 
-  background-image: url('../assets/iyte-kampus.jpg');
+  
+  background-color: rgba(195, 191, 191, 0.5); /* Arka plan şeffaflığı */
+  z-index: 999; /* Diğer içeriğin üzerinde olması için */
+  
+   
+  background-image: url('../assets/iyte2.jpg');
   background-size:cover;
   background-position: center;
-  */
+  
 }
 
 form {
+  backdrop-filter: blur(10px); /* Arka plan bulanıklığı */
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Inputlar ve label'lar sol tarafa hizalanır */
@@ -43,6 +48,10 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   width: 250px;
+  backdrop-filter: blur(10px); /* Arka plan bulanıklığı */
+  margin-top: -300px;
+  
+  
 }
 
 .input-group {
