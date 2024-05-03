@@ -46,6 +46,7 @@ function SignUpPage() {
       </nav>
       <div className="login-form-container">
         <form onSubmit={handleSubmit}>
+        <h2 className="form-title">SIGN UP</h2> {/* Login başlığı eklendi */}
           {message && <div className={isError ? "error-message" : "success-message"}>{message}</div>}
           <div className="input-group">
             <label htmlFor="email">Email:</label>

@@ -53,6 +53,9 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   width: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37) 
+
   
 
   
@@ -128,4 +131,14 @@ button:hover {
   color: #004d00;
   background-color: #e6ffe6;
   border: 1px solid #004d00;
+}
+
+.form-title {
+  text-align: center; /* Başlığı ortalar */
+  font-size: 24px; /* Font boyutunu büyütür */
+  font-weight: bold; /* Yazı tipini kalın yapar */
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin: auto; /* Başlık ile form arasında boşluk bırakır */
+  color: rgb(230, 236, 239); /* Renk belirtir */
 }
