@@ -19,7 +19,7 @@ function LoginPage() {
       });
   
       if (response.status === 200) {
-        navigate('/home'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
+        navigate('/StudentHome'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
       } else {
         console.error('Giriş başarısız');
       }
