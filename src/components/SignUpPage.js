@@ -76,7 +76,7 @@ function SignUpPage() {
               type="password" 
               id="confirmPassword" 
               name="confirmPassword" 
-              placeholder="Confirm your password" 
+              placeholder="Enter Your Password Again" 
               required 
               value={confirmPassword} 
               onChange={(e) => setConfirmPassword(e.target.value)} 
