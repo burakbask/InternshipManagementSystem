@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/LoginPage.css'; // CSS dosyasını import edin
-import logo from '../assets/iyte_logo-tur.png'; // Logo dosyasını import edin
+import { Link } from 'react-router-dom';
+import '../styles/LoginPage.css';
+import logo from '../assets/iyte_logo-tur.png';
 
 function LoginPage() {
   return (
@@ -8,16 +9,19 @@ function LoginPage() {
       <nav className="navbar">
         <img src={logo} className='logo' alt="Logo" />
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
+        <Link to="/signup" className="signup-button">Sign Up</Link>
       </nav>
       <div className="login-form-container">
         <form>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <br />
-          <label htmlFor="password">Şifre:</label>
-          <input type="password" id="password" name="password" required />
-          <br />
-          <button type="submit">Giriş Yap</button>
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          </div>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
