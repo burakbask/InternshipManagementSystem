@@ -29,7 +29,6 @@
   height: calc(100vh - 120px);
   
   background-color: rgba(195, 191, 191, 0.5); /* Arka plan şeffaflığı */
-  z-index: 999; /* Diğer içeriğin üzerinde olması için */
   
    
   background-image: url('../assets/iyte2.jpg');
@@ -48,8 +47,7 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   width: 250px;
-  backdrop-filter: blur(10px); /* Arka plan bulanıklığı */
-  margin-top: -300px;
+  
   
   
 }
