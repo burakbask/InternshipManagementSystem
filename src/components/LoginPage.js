@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Link bileşenini import edin
 import '../styles/LoginPage.css';
 import logo from '../assets/iyte_logo-tur.png';
+import axios from 'axios';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -12,29 +13,23 @@ function LoginPage() {
     
     try {
       // API'ye email ve password göndererek giriş yap
-      const response = await fetch('api_login_endpoint', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }), // Gönderilecek verileri JSON formatında string'e dönüştürür
+      const response = await axios.post('api_login_endpoint', {
+        email,
+        password,
       });
-
-      // API'den gelen yanıtı JSON formatında alır
-      const data = await response.json();
-
+  
       // Başarılı giriş sonrası sayfa yönlendirmesi
-      if (response.ok) {
+      if (response.status === 200) {
         // Örnek olarak başarılı girişte '/home' sayfasına yönlendiriyoruz
         window.location.href = '/home';
       } else {
         // Hatalı giriş durumunda
-        console.error('Giriş başarısız:', data.error);
+        console.error('Giriş başarısız');
       }
     } catch (error) {
       console.error('Giriş başarısız:', error);
     }
-};
+  };
 
   return (
     <div>
