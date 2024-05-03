@@ -1,3 +1,8 @@
+.login-button{
+  background-color: #9A1220;
+}
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -69,22 +74,28 @@ input {
   width: 100%; /* Input genişliği parent'ına göre ayarlanır */
 }
 
+
+
 button {
   padding: 10px;
   width: 90%; /* Buton genişliği form genişliği ile aynı olur */
   cursor: pointer;
-  background-color: rgb(104, 103, 103);
   color: white;
   border: none;
   border-radius: 5px;
   margin: auto;
 }
 
+
+
+
 button:hover {
   background-color: rgb(1, 155, 1);
 }
 
 .signup-button {
+  width: 75px;
+  text-align: center;
   padding: 10px;
   border: none;
   background-color: rgb(125, 34, 34);
