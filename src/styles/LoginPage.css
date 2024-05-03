@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Logo sol tarafa, başlık ortaya ve form sağ tarafa */
+  align-items: center;
+  height: 120px;
+  background-color: #9A1220;
+}
+
+.navbar img {
+  height: 60px;
+  margin-left: 10px;
+}
+
+.navbar .ims-header {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin: auto; /* Merkeze almak için */
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 120px);
+  background-color: #333;
+}
+
+form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 200px;
+}
+
+button {
+  padding: 10px;
+  width: 216px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
