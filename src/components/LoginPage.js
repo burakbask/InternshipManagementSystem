@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Link bileşenini import edin
+import { Link, useNavigate } from 'react-router-dom'; // useNavigate'i dahil edin
 import '../styles/LoginPage.css';
 import logo from '../assets/iyte_logo-tur.png';
 import axios from 'axios';
 
 function LoginPage() {
+  const navigate = useNavigate(); // useNavigate hook'ını kullanarak değişken oluşturun
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,18 +13,14 @@ function LoginPage() {
     event.preventDefault();
     
     try {
-      // API'ye email ve password göndererek giriş yap
       const response = await axios.post('api_login_endpoint', {
         email,
         password,
       });
   
-      // Başarılı giriş sonrası sayfa yönlendirmesi
       if (response.status === 200) {
-        // Örnek olarak başarılı girişte '/home' sayfasına yönlendiriyoruz
-        window.location.href = '/home';
+        navigate('/home'); // useHistory yerine useNavigate kullanarak sayfa yönlendirmesi
       } else {
-        // Hatalı giriş durumunda
         console.error('Giriş başarısız');
       }
     } catch (error) {
@@ -36,7 +33,6 @@ function LoginPage() {
       <nav className="navbar">
         <img src={logo} className='logo' alt="Logo" />
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
-        {/* Link bileşenini kullanarak Sign Up sayfasına yönlendirme */}
         <Link to="/signup" className="signup-button">Sign Up</Link>
       </nav>
       <div className="login-form-container">
