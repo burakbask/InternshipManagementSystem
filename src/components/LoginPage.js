@@ -21,9 +21,24 @@ function LoginPage() {
       });
   
       if (response.status === 200) {
-        setMessage('The login is successful. You are redirected to homepage..');
+        setMessage('The login is successful. You are redirected...');
         setIsError(false);
-        setTimeout(() => navigate('/StudentHome'), 2000); // 2 saniye sonra yönlendirme
+      
+        // Kullanıcı tipine göre yönlendirme
+        switch(response.data.type) {
+          case 'Student':
+            setTimeout(() => navigate('/StudentHome'), 2000);
+            break;
+          case 'Company':
+            setTimeout(() => navigate('/CompanyHome'), 2000);
+            break;
+          case 'InternshipCoordinator':
+            setTimeout(() => navigate('/InternshipCoordinatorHomePage'), 2000);
+            break;
+          default:
+            setMessage('Unknown type, please contact support.');
+            setIsError(true);
+        }
       } else {
         setMessage('Login failed. Please check your details.');
         setIsError(true);
