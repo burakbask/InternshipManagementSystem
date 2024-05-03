@@ -1,14 +1,15 @@
 .navbar {
   display: flex;
-  justify-content: space-between; /* Logo sol tarafa, başlık ortaya ve form sağ tarafa */
+  justify-content: space-between;
   align-items: center;
   height: 120px;
   background-color: #9A1220;
 }
 
 .navbar img {
-  height: 60px;
-  margin-left: 10px;
+  height: 100px;
+  width: 100px;
+  margin-left: 50px;
 }
 
 .navbar .ims-header {
@@ -16,7 +17,7 @@
   font-size: 30px;
   font-weight: bold;
   display: inline-block;
-  margin: auto; /* Merkeze almak için */
+  margin: auto;
 }
 
 .login-form-container {
@@ -24,36 +25,69 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 120px);
-  background-color: #333;
+  background-color: #c3bfbf; 
+   /* Resminizi buraya ekleyin */
+  /* 
+  background-image: url('../assets/iyte-kampus.jpg');
+  background-size:cover;
+  background-position: center;
+  */
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Inputlar ve label'lar sol tarafa hizalanır */
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  width: 250px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 90%; /* Her bir input grubunun genişliği form genişliği ile aynı olur */
 }
 
 label {
+  display: block;
   margin-bottom: 5px;
 }
 
 input {
-  margin-bottom: 10px;
   padding: 8px;
-  width: 200px;
+  width: 100%; /* Input genişliği parent'ına göre ayarlanır */
 }
 
 button {
   padding: 10px;
-  width: 216px;
+  width: 90%; /* Buton genişliği form genişliği ile aynı olur */
   cursor: pointer;
-  background-color: #007bff;
+  background-color: rgb(104, 103, 103);
   color: white;
   border: none;
   border-radius: 5px;
+  margin: auto;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: rgb(1, 155, 1);
 }
+
+.signup-button {
+  padding: 10px;
+  border: none;
+  background-color: rgb(125, 34, 34);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Butonu 10px sola kaydır */
+}
+
+
+.signup-button:hover {
+  background-color: green;
+}
+
