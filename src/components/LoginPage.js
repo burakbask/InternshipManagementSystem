@@ -23,7 +23,7 @@ function LoginPage() {
       if (response.status === 200) {
         setMessage('The login is successful. You are redirected to homepage..');
         setIsError(false);
-        setTimeout(() => navigate('/home'), 1000); // 2 saniye sonra yönlendirme
+        setTimeout(() => navigate('/home'), 2000); // 2 saniye sonra yönlendirme
       } else {
         setMessage('Login failed. Please check your details.');
         setIsError(true);
