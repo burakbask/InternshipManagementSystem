@@ -22,7 +22,7 @@ function SignUpPage() {
     }
 
     try {
-      const response = await axios.post('api_signup_endpoint', { email, password });
+      const response = await axios.post('http://localhost:3000/api/company/register', { email, password });
       if (response.status === 200) {
         setMessage('Signup successful. Redirecting to login...');
         setIsError(false);

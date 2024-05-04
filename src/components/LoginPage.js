@@ -15,7 +15,7 @@ function LoginPage() {
     event.preventDefault();
     
     try {
-      const response = await axios.post('api_login_endpoint', {
+      const response = await axios.post('http://localhost:3000/api/login', {
         email,
         password,
       });
@@ -25,14 +25,14 @@ function LoginPage() {
         setIsError(false);
       
         // Kullanıcı tipine göre yönlendirme
-        switch(response.data.type) {
-          case 'Student':
+        switch(response.data) {
+          case 'student':
             setTimeout(() => navigate('/StudentHome'), 2000);
             break;
-          case 'Company':
+          case 'company':
             setTimeout(() => navigate('/CompanyHome'), 2000);
             break;
-          case 'InternshipCoordinator':
+          case 'internshipcoordinator':
             setTimeout(() => navigate('/InternshipCoordinatorHomePage'), 2000);
             break;
           default:
