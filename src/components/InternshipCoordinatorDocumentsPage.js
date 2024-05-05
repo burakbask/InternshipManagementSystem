@@ -1,11 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import logo from '../assets/iyte_logo-tur.png';
-import '../styles/InternshipCoordinatorDocumentsPage.css';
-
 function InternshipCoordinatorDocumentsPage() {
   const [documents, setDocuments] = useState([]);
 
@@ -14,7 +6,7 @@ function InternshipCoordinatorDocumentsPage() {
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('https://your-backend-url.com/documents')
+    axios.get('http://localhost:3000/api/commission/viewDocuments')
       .then(response => {
         setDocuments(response.data);
       })
@@ -39,7 +31,7 @@ function InternshipCoordinatorDocumentsPage() {
       const formData = new FormData();
       formData.append('file', file);
 
-      axios.post('https://your-backend-url.com/upload', formData, {
+      axios.post('http://localhost:3000/api/commission/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -66,7 +58,7 @@ function InternshipCoordinatorDocumentsPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                {doc.name}
+                {doc.fileName} {/* Sadece doküman adını göster */}
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
                   <FontAwesomeIcon icon={faTrashAlt} /> Delete Document
                 </button>
