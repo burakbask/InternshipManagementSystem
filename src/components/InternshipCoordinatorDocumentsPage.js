@@ -1,3 +1,12 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/iyte_logo-tur.png';
+import '../styles/InternshipCoordinatorDocumentsPage.css';
+
+
 function InternshipCoordinatorDocumentsPage() {
   const [documents, setDocuments] = useState([]);
 
