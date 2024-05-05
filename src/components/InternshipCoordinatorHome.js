@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/iyte_logo-tur.png'; // Adjust the path to where your logo is stored
-import '../styles/InternshipCoordinatorHome.css'
+import logo from '../assets/iyte_logo-tur.png'; // Logo'nun saklandığı yere göre yolunu ayarlayın
+import '../styles/InternshipCoordinatorHome.css';
+
 function InternshipCoordinatorHome() {
   return (
     <div>
@@ -10,8 +11,15 @@ function InternshipCoordinatorHome() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <div>
-        InternshipCoordinatorHome Content Here
+      <div className="content">
+        <Link to="/internshipCoordinatorDocumentsPage" className="big-div">
+          Upload Documents
+        </Link>
+        
+        <div className="big-div">
+          <p>Verify Internship</p>
+          {/* İkon gelecek */}
+        </div>
       </div>
     </div>
   )

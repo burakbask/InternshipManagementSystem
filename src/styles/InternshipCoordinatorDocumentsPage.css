@@ -1,0 +1,47 @@
+/* InternshipCoordinatorDocumentsPage.css */
+
+.content {
+    display: flex;
+    flex-direction: column; /* Bu özellik ile içerik ters çevriliyor */
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .file-upload-label {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .file-upload-input {
+    display: none; /* Input elemanı gizleniyor */
+  }
+  
+  .document-list {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Elemanları merkezde hizalar */
+  }
+  
+  .document-item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%; /* Belirli bir genişlik tanımlar */
+    text-align: center; /* Metni ortalar */
+  }
+
+  .delete-button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }

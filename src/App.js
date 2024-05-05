@@ -5,11 +5,13 @@ import SignUpPage from './components/SignUpPage'; // SignUpPage bileşeninizi bu
 import StudentHome from './components/StudentHome';
 import CompanyHome from './components/CompanyHome'; // CompanyHome bileşeninizi burada import edin
 import InternshipCoordinatorHome from './components/InternshipCoordinatorHome'; // InternshipCoordinatorHome bileşeninizi burada import edin
+import InternshipCoordinatorDocumentsPage from './components/InternshipCoordinatorDocumentsPage';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/InternshipCoordinatorDocumentsPage" element={<InternshipCoordinatorDocumentsPage />} /> 
         <Route path="/CompanyHome" element={<CompanyHome />} /> 
         <Route path="/InternshipCoordinatorHome" element={<InternshipCoordinatorHome />} /> 
         <Route path="/StudentHome" element={<StudentHome />} />
