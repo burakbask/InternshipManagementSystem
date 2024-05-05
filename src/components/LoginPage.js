@@ -33,7 +33,7 @@ function LoginPage() {
             setTimeout(() => navigate('/CompanyHome'), 2000);
             break;
           case 'internshipcoordinator':
-            setTimeout(() => navigate('/InternshipCoordinatorHomePage'), 2000);
+            setTimeout(() => navigate('/InternshipCoordinatorHome'), 2000);
             break;
           default:
             setMessage('Unknown type, please contact support.');
