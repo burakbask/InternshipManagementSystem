@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaUpload, FaCheckCircle, FaBullhorn, FaFile } from 'react-icons/fa';
 import logo from '../assets/iyte_logo-tur.png';
 import '../styles/InternshipCoordinatorHome.css';
+import Calendar from 'react-calendar';
 
 function InternshipCoordinatorHome() {
   const navigate = useNavigate();
@@ -36,6 +37,9 @@ function InternshipCoordinatorHome() {
           <FaFile className="icon" />
           <div className="icon-text">SSI Process</div>
         </div>
+      </div>
+      <div className='calendar-container'>
+        <Calendar/>
       </div>
     </div>
   );
