@@ -20,46 +20,57 @@
   .file-upload-input {
     display: none; /* Input elemanı gizleniyor */
   }
-  
   .document-list {
-    width: 100%;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Elemanları merkezde hizalar */
-  }
-  
-  .document-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for each document list */
+    padding: 15px;
+}
+
+.document-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ccc; /* Optional: adds a light line between items */
-    margin: 5px 0;
-  }
-  
-  .delete-button {
-    background: #f44336; /* Red background for the button */
+    border-bottom: 1px solid #ddd; /* Separator between documents */
+}
+
+.document-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+span {
+    font-size: 16px;
+}
+
+.delete-button {
+    background-color: #ff6347; /* Tomato red color for delete button */
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .file-upload-label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.delete-button:hover {
+    background-color: #e53e30; /* Darker red on hover */
+}
+
+.file-upload-label {
     display: block;
-    background: rgb(19, 90, 232); /* Green background for the upload label */
+    background-color: #4CAF50; /* Green background */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 12px 20px;
     margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
-  }
-  
-  .file-upload-input {
-    display: none; /* Hide the default input */
-  }
-  
+}
+
+.file-upload-input {
+    display: none; /* Hide the default file input */
+}
