@@ -12,27 +12,65 @@
   }
   
   
-  .logout-button:hover {
-    background-color: rgb(81, 81, 81);
-  }
+.logout-button:hover {
+    background-color: rgb(115, 114, 114);
+}
 
   /* InternshipCoordinatorHome.css */
 
 /* InternshipCoordinatorHome.css */
 
-.content {
-  display: flex; /* Büyük div'leri yan yana hizalar */
-  justify-content: center; /* İçerikleri yatayda ortalar */
-  align-items: center; /* İçerikleri dikeyde ortalar */
-  
+.outside-div {
+  display: flex;
+  flex-direction: row;  /* Div'leri yatay olarak sıralar */
+  justify-content: space-between; /* Div'ler arasında eşit mesafe sağlar */
+  align-items: center;  /* Dikey olarak ortalar */
+  padding: 20px; /* İçerik bölümünün çevresine padding ekler */
+  flex-wrap: wrap; /* Eğer ekran genişliği yetersizse, div'ler alt satıra geçer */
+  margin-top: 100px;
+}
+.big-div {
+  flex: 1;  /* Her bir div'e eşit genişlik sağlar */
+  margin: 10px;  /* Div'ler arasında boşluk bırakır */
+  padding: 20px;  /* Her bir div'in içine padding ekler */
+  height: 150px;
+  width: 150px;
+  text-decoration: none;
+  background-color: #f4f4f4;  /* Arkaplan rengi */
+  text-align: center;  /* İçerikleri merkezler */
+  cursor: pointer;  /* Fareyle üzerine gelindiğinde imleç şeklini değiştirir */
+  transition: transform 0.3s ease;  /* Üzerine gelindiğinde animasyon efekti */
+  border-radius: 10px;
 }
 
-.big-div {
-  background-color: #f2f2f2; /* Gri arka plan rengi */
-  padding: 30px; /* İçerikten kenara boşluk */
-  margin: 10px; /* Büyük div'ler arasında boşluk */
-  text-align: center; /* İçerik ortalanacak */
-  border-radius: 15px; /* Kenarlık (radius) ekle */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge ekle */
+.big-div:hover {
+  transform: translateY(-5px);
+  background-color: rgb(165, 165, 164);
+  transition: 0.5s;  /* Üzerine gelindiğinde hafifçe yukarı taşır */
 }
+
+p{
+  text-decoration: none;
+}
+
+.big-div a { /* 'a' tagını hedefleyerek tüm Link bileşenlerine uygulanır */
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+  color: inherit; /* Link rengini üst elementten devralır */
+}
+
+.icon {
+  display: block; /* İkonu yeni bir satıra yerleştirir */
+  margin: 40px auto 10px; /* İkonu merkeze alır ve altına boşluk ekler */
+  font-size: 24px; /* İkon boyutunu ayarlar */
+}
+
+.icon-text {
+  font-size: 20px; /* Metin boyutunu ayarlar */
+}
+
+
+
+
+
+
 
