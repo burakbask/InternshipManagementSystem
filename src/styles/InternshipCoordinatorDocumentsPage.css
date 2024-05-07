@@ -30,18 +30,36 @@
   }
   
   .document-item {
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 80%; /* Belirli bir genişlik tanımlar */
-    text-align: center; /* Metni ortalar */
+    border-bottom: 1px solid #ccc; /* Optional: adds a light line between items */
+    margin: 5px 0;
   }
-
+  
   .delete-button {
-    margin-left: 10px;
-    background-color: transparent;
+    background: #f44336; /* Red background for the button */
+    color: white;
     border: none;
-    color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9rem;
   }
+  
+  .file-upload-label {
+    display: block;
+    background: rgb(19, 90, 232); /* Green background for the upload label */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .file-upload-input {
+    display: none; /* Hide the default input */
+  }
+  

@@ -67,7 +67,7 @@ function InternshipCoordinatorDocumentsPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                {doc.fileName} {/* Sadece doküman adını göster */}
+                <span>{doc.fileName}</span>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
                   <FontAwesomeIcon icon={faTrashAlt} /> Delete Document
                 </button>
@@ -82,6 +82,7 @@ function InternshipCoordinatorDocumentsPage() {
       </div>
     </div>
   );
+  
 }
 
 export default InternshipCoordinatorDocumentsPage;
