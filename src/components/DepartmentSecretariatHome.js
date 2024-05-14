@@ -1,23 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFolder, FaUpload, FaBullhorn } from 'react-icons/fa';
+import { FaFolder, FaFile } from 'react-icons/fa';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/StudentHome.css';
+import '../styles/DepartmentSecretariatHome.css';
 import Calendar from 'react-calendar';
 
-function StudentHome() {
+function DepartmentSecretariatHome() {
     const navigate = useNavigate();
 
     const handleDocumentsClick = () => {
-        navigate("/StudentDocumentsPage");
+        navigate("/DepartmentSecretariatDocumentsPage");
     };
 
-    const handleUploadClick = () => {
-        navigate("/StudentUploadPage");
-    };
-
-    const handleAnnouncementsClick = () => {
-        navigate("/StudentAnnouncementsPage");
+    const handleSSIClick = () => {
+        navigate("/DepartmentSecretariatSSIPage");
     };
 
     return (
@@ -33,13 +29,9 @@ function StudentHome() {
                     <FaFolder className="icon" />
                     <div className="icon-text">Documents</div>
                 </div>
-                <div className="big-div" onClick={handleUploadClick}>
-                    <FaUpload className="icon" />
-                    <div className="icon-text">Upload Document</div>
-                </div>
-                <div className="big-div" onClick={handleAnnouncementsClick}>
-                    <FaBullhorn className="icon" />
-                    <div className="icon-text">Announcements</div>
+                <div className="big-div" onClick={handleSSIClick}>
+                    <FaFile className="icon" />
+                    <div className="icon-text">SSI Process</div>
                 </div>
             </div>
             <div className='calendar-container'>
@@ -49,6 +41,4 @@ function StudentHome() {
     );
 }
 
-export default StudentHome;
-
-
+export default DepartmentSecretariatHome;
