@@ -17,6 +17,7 @@ function InternshipCoordinatorDocumentsPage() {
     axios.get('http://localhost:3000/api/commission/viewDocuments')
       .then(response => {
         setDocuments(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
@@ -66,7 +67,7 @@ function InternshipCoordinatorDocumentsPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a href={`http://localhost:3000/api/commission/download/${doc.id}`} download={doc.fileName}>
+                <a href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
