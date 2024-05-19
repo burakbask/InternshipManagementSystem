@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../styles/AdminViewAnnouncements.css';
+import '../styles/AdminViewAnnouncement.css';
 
 function AdminViewAnnouncements() {
   const [announcements, setAnnouncements] = useState([]);

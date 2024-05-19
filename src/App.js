@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/AdminViewAnnouncements' element={<AdminViewAnnouncements />} />
-        <Route path="/AdminPendingDocuments" element={<AdminPendingDocuments />} />
+        <Route path='/AdminPendingAnnouncements' element={<AdminPendingDocuments />} />
         <Route path="/DepartmentSecretariatHome" element={<DepartmentSecretariatHome />} />
         <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/InternshipCoordinatorDocumentsPage" element={<InternshipCoordinatorDocumentsPage />} /> 
