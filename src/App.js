@@ -8,11 +8,15 @@ import InternshipCoordinatorHome from './components/InternshipCoordinatorHome'; 
 import InternshipCoordinatorDocumentsPage from './components/InternshipCoordinatorDocumentsPage';
 import AdminHome from './components/AdminHome';
 import DepartmentSecretariatHome from './components/DepartmentSecretariatHome';
+import AdminPendingDocuments from './components/AdminPendingAnnouncements'
+import AdminViewAnnouncements from './components/AdminViewAnnouncements'
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/AdminViewAnnouncements' element={<AdminViewAnnouncements />} />
+        <Route path="/AdminPendingDocuments" element={<AdminPendingDocuments />} />
         <Route path="/DepartmentSecretariatHome" element={<DepartmentSecretariatHome />} />
         <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/InternshipCoordinatorDocumentsPage" element={<InternshipCoordinatorDocumentsPage />} /> 
