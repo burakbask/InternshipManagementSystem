@@ -6,7 +6,6 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/iyte_logo-tur.png';
 import '../styles/InternshipCoordinatorDocumentsPage.css';
 
-
 function InternshipCoordinatorDocumentsPage() {
   const [documents, setDocuments] = useState([]);
 
@@ -67,7 +66,9 @@ function InternshipCoordinatorDocumentsPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <span>{doc.fileName}</span>
+                <a href={`http://localhost:3000/api/commission/download/${doc.id}`} download={doc.fileName}>
+                  {doc.fileName}
+                </a>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
                   <FontAwesomeIcon icon={faTrashAlt} /> Delete Document
                 </button>
@@ -82,7 +83,6 @@ function InternshipCoordinatorDocumentsPage() {
       </div>
     </div>
   );
-  
 }
 
 export default InternshipCoordinatorDocumentsPage;
