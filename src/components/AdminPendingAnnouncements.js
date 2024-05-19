@@ -10,7 +10,7 @@ function AdminPendingAnnouncements() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/announcements')
+    axios.get('http://localhost:3000/api/admin/viewDocuments')
       .then(response => {
         setAnnouncements(response.data);
       })
