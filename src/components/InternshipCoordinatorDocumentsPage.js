@@ -16,8 +16,8 @@ function InternshipCoordinatorDocumentsPage() {
   const fetchDocuments = () => {
     axios.get('http://localhost:3000/api/commission/viewDocuments')
       .then(response => {
+        console.log('Fetched documents:', response.data); // Gelen veriyi kontrol edin
         setDocuments(response.data);
-        console.log(response.data);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
@@ -25,7 +25,7 @@ function InternshipCoordinatorDocumentsPage() {
   };
 
   const handleDeleteDocument = (id) => {
-    axios.delete(`https://your-backend-url.com/documents/${id}`)
+    axios.delete(`http://localhost:3000/api/commission/delete/${id}`)
       .then(() => {
         fetchDocuments(); // Silme işlemi başarılı olduktan sonra döküman listesini yeniden çek
       })
@@ -36,22 +36,22 @@ function InternshipCoordinatorDocumentsPage() {
 
   const handleFileUpload = (event) => {
     const files = event.target.files;
+    const formData = new FormData();
     Array.from(files).forEach(file => {
-      const formData = new FormData();
-      formData.append('file', file);
+      formData.append('files', file); // 'files' backend'de birden fazla dosyayı kabul edecek şekilde ayarlanmalıdır.
+    });
 
-      axios.post('http://localhost:3000/api/commission/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(response => {
-        console.log(`File upload success for ${file.name}:`, response.data);
-        fetchDocuments(); // Yükleme başarılı olduktan sonra döküman listesini yeniden çek
-      })
-      .catch(error => {
-        console.error(`File upload error for ${file.name}:`, error);
-      });
+    axios.post('http://localhost:3000/api/commission/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(response => {
+      console.log(`File upload success:`, response.data);
+      fetchDocuments(); // Yükleme başarılı olduktan sonra döküman listesini yeniden çek
+    })
+    .catch(error => {
+      console.error(`File upload error:`, error);
     });
   };
 
@@ -67,11 +67,11 @@ function InternshipCoordinatorDocumentsPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
-                  <FontAwesomeIcon icon={faTrashAlt} /> Delete Document
+                  <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
               </div>
             ))
