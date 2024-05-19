@@ -13,7 +13,8 @@ function AdminViewAnnouncements() {
     axios.get('http://localhost:3000/api/admin/viewDocuments')
       .then(response => {
         // status alanı true olan duyuruları filtrele
-        const filteredAnnouncements = response.data.filter(announcement => announcement.status === true);
+        console.log(response.data);
+        
         setAnnouncements(filteredAnnouncements);
         console.log(filteredAnnouncements);
       })
@@ -29,9 +30,7 @@ function AdminViewAnnouncements() {
         {announcements.length > 0 ? (
           announcements.map(announcement => (
             <div key={announcement.id} className="announcement-item">
-              <h2>{announcement.title}</h2>
-              <p>{announcement.content}</p>
-              <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
+              <h2>{announcement.fileName}</h2>
             </div>
           ))
         ) : (
