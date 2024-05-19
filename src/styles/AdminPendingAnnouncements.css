@@ -1,0 +1,53 @@
+.announcements-container {
+    padding: 20px;
+  }
+  
+  .announcements-list {
+    margin-top: 20px;
+  }
+  
+  .announcement-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .announcement-item h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .announcement-item p {
+    color: #666;
+  }
+  
+  .approve-button, .decline-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .approve-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .decline-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .approve-button:hover {
+    background-color: #45a049;
+  }
+  
+  .decline-button:hover {
+    background-color: #d32f2f;
+  }
+  

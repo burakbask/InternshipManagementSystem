@@ -13,7 +13,10 @@ function AdminHome() {
     };
 
     const handlePendingAnnouncementsClick = () => {
-        navigate("/AdminPendingAnnouncementsPage");
+        navigate("/AdminPendingAnnouncements");
+    };
+    const handleAnnouncementsClick = () => {
+        navigate("/AdminViewAnnouncements");
     };
 
     return (
@@ -33,7 +36,7 @@ function AdminHome() {
                     <FaClock className="icon" />
                     <div className="icon-text">Pending Announcements</div>
                 </div>
-                <div className="big-div" onClick={handlePendingAnnouncementsClick}>
+                <div className="big-div" onClick={handleAnnouncementsClick}>
                     <FaBullhorn className="icon" />
                     <div className="icon-text">Announcements</div>
                 </div>
