@@ -32,7 +32,7 @@ function LoginPage() {
           case 'company':
             setTimeout(() => navigate('/CompanyHome'), 2000);
             break;
-          case 'internshipcoordinator':
+          case 'commission':
             setTimeout(() => navigate('/InternshipCoordinatorHome'), 2000);
             break;
           default:
