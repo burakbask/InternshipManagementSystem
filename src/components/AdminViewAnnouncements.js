@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/AdminViewAnnouncement.css';
+import logo from '../assets/iyte_logo-tur.png';
+import { Link } from 'react-router-dom';
+
 
 function AdminViewAnnouncements() {
   const [announcements, setAnnouncements] = useState([]);
@@ -15,8 +18,8 @@ function AdminViewAnnouncements() {
         // status alanı true olan duyuruları filtrele
         console.log(response.data);
         
-        setAnnouncements(filteredAnnouncements);
-        console.log(filteredAnnouncements);
+        setAnnouncements(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.error('Error fetching announcements:', error);
@@ -24,6 +27,12 @@ function AdminViewAnnouncements() {
   };
 
   return (
+    <div>
+    <nav className="navbar">
+        <img src={logo} className='logo' alt="Logo" />
+        <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
+        <Link to="/" className="logout-button">Log Out</Link>
+      </nav>
     <div className="announcements-container">
       <h1>Announcements</h1>
       <div className="announcements-list">
@@ -37,6 +46,7 @@ function AdminViewAnnouncements() {
           <p>No announcements found.</p>
         )}
       </div>
+    </div>
     </div>
   );
 }

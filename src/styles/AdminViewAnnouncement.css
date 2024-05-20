@@ -24,3 +24,18 @@
     color: #666;
   }
   
+  .announcements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Dikey merkezleme */
+    text-align: center; /* Yazıları yatayda ortalama */
+  }
+  
+  .announcements-list {
+    width: 100%; /* Genişlik tam olsun ki içerik ortalansın */
+  }
+  
+  .announcement-item {
+    margin: 10px 0; /* Her bir öğenin arasına boşluk bırakmak için */
+  }
+  
