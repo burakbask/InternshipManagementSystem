@@ -12,27 +12,235 @@
   }
   
   
-  .logout-button:hover {
-    background-color: rgb(81, 81, 81);
-  }
+.logout-button:hover {
+    background-color: rgb(115, 114, 114);
+}
 
   /* InternshipCoordinatorHome.css */
 
 /* InternshipCoordinatorHome.css */
 
-.content {
-  display: flex; /* Büyük div'leri yan yana hizalar */
-  justify-content: center; /* İçerikleri yatayda ortalar */
-  align-items: center; /* İçerikleri dikeyde ortalar */
+.outside-div {
+  display: flex;
+  flex-direction: row;  /* Div'leri yatay olarak sıralar */
+  justify-content: space-between; /* Div'ler arasında eşit mesafe sağlar */
+  align-items: center;  /* Dikey olarak ortalar */
+  padding: 20px; /* İçerik bölümünün çevresine padding ekler */
+  flex-wrap: wrap; /* Eğer ekran genişliği yetersizse, div'ler alt satıra geçer */
+  margin-top: 100px;
+}
+.big-div {
+  flex: 1;  /* Her bir div'e eşit genişlik sağlar */
+  margin: 10px;  /* Div'ler arasında boşluk bırakır */
+  padding: 20px;  /* Her bir div'in içine padding ekler */
+  height: 150px;
+  width: 150px;
+  text-decoration: none;
+  background-color: #f4f4f4;  /* Arkaplan rengi */
+  text-align: center;  /* İçerikleri merkezler */
+  cursor: pointer;  /* Fareyle üzerine gelindiğinde imleç şeklini değiştirir */
+  transition: transform 0.3s ease;  /* Üzerine gelindiğinde animasyon efekti */
+  border-radius: 10px;
+}
+
+.big-div:hover {
+  transform: translateY(-5px);
+  background-color: rgb(165, 165, 164);
+  transition: 0.5s;  /* Üzerine gelindiğinde hafifçe yukarı taşır */
+}
+
+p{
+  text-decoration: none;
+}
+
+.big-div a { /* 'a' tagını hedefleyerek tüm Link bileşenlerine uygulanır */
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+  color: inherit; /* Link rengini üst elementten devralır */
+}
+
+.icon {
+  display: block; /* İkonu yeni bir satıra yerleştirir */
+  margin: 40px auto 10px; /* İkonu merkeze alır ve altına boşluk ekler */
+  font-size: 24px; /* İkon boyutunu ayarlar */
+}
+
+.icon-text {
+  font-size: 20px; /* Metin boyutunu ayarlar */
+}
+
+.calendar-container {
+  position: fixed;
+  right: 0px;
+  bottom: 5px;
+  width: 300px; /* İstediğiniz genişliği ayarlayabilirsiniz */
+}
+
+
+
+
+
+.react-calendar {
+  width: 250px;
+  max-width: 100%;
+  background: rgb(255, 255, 255);
+  border: 1px solid #fffbfb;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1em;
+  color: #0c0c07;
+}
+
+.react-calendar--doubleView {
+  width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+  color: #0c0c07;
+}
+
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
   
 }
 
-.big-div {
-  background-color: #f2f2f2; /* Gri arka plan rengi */
-  padding: 30px; /* İçerikten kenara boşluk */
-  margin: 10px; /* Büyük div'ler arasında boşluk */
-  text-align: center; /* İçerik ortalanacak */
-  border-radius: 15px; /* Kenarlık (radius) ekle */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge ekle */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+  
 }
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+  
+}
+
+.react-calendar__month-view__days__day--neighboringMonth,
+.react-calendar__decade-view__years__year--neighboringDecade,
+.react-calendar__century-view__decades__decade--neighboringCentury {
+  color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+  color: #0c0c07;
+}
+
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+  font: inherit;
+  font-size: 0.833em;
+  color: #0c0c07;
+}
+
+.react-calendar__tile:disabled {
+  background-color: #565454;
+  color: #ababab;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth:disabled,
+.react-calendar__decade-view__years__year--neighboringDecade:disabled,
+.react-calendar__century-view__decades__decade--neighboringCentury:disabled {
+  color: #4d4c4c;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__tile--now {
+  background: #a00000;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #d50101;
+}
+
+.react-calendar__tile--hasActive {
+  background: #76baff;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+
+.react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
 

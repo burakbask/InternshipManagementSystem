@@ -6,11 +6,19 @@ import StudentHome from './components/StudentHome';
 import CompanyHome from './components/CompanyHome'; // CompanyHome bileşeninizi burada import edin
 import InternshipCoordinatorHome from './components/InternshipCoordinatorHome'; // InternshipCoordinatorHome bileşeninizi burada import edin
 import InternshipCoordinatorDocumentsPage from './components/InternshipCoordinatorDocumentsPage';
+import AdminHome from './components/AdminHome';
+import DepartmentSecretariatHome from './components/DepartmentSecretariatHome';
+import AdminPendingDocuments from './components/AdminPendingAnnouncements'
+import AdminViewAnnouncements from './components/AdminViewAnnouncements'
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/AdminViewAnnouncements' element={<AdminViewAnnouncements />} />
+        <Route path='/AdminPendingAnnouncements' element={<AdminPendingDocuments />} />
+        <Route path="/DepartmentSecretariatHome" element={<DepartmentSecretariatHome />} />
+        <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/InternshipCoordinatorDocumentsPage" element={<InternshipCoordinatorDocumentsPage />} /> 
         <Route path="/CompanyHome" element={<CompanyHome />} /> 
         <Route path="/InternshipCoordinatorHome" element={<InternshipCoordinatorHome />} /> 

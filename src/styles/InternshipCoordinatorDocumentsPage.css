@@ -1,8 +1,6 @@
-/* InternshipCoordinatorDocumentsPage.css */
-
 .content {
     display: flex;
-    flex-direction: column; /* Bu özellik ile içerik ters çevriliyor */
+    flex-direction: column;
     align-items: center;
     padding: 20px;
   }
@@ -10,8 +8,8 @@
   .file-upload-label {
     margin-top: 20px;
     cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4CAF50; /* Green background */
+    color: white;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
@@ -22,26 +20,91 @@
   }
   
   .document-list {
-    width: 100%;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Elemanları merkezde hizalar */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for each document list */
+    padding: 15px;
   }
   
   .document-item {
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 80%; /* Belirli bir genişlik tanımlar */
-    text-align: center; /* Metni ortalar */
+    border-bottom: 1px solid #ddd; /* Separator between documents */
   }
-
+  
+  .document-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+  
+  .document-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 20px; /* Aradaki boşluğu arttır */
+  }
+  
+  .document-link:hover {
+    text-decoration: underline;
+  }
+  
   .delete-button {
-    margin-left: 10px;
-    background-color: transparent;
+    background-color: #ff6347; /* Tomato red color for delete button */
+    color: white;
     border: none;
-    color: red;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
   }
+  
+  .delete-button:hover {
+    background-color: #e53e30; /* Darker red on hover */
+  }
+  
+  .file-upload-label {
+    display: block;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .file-upload-input {
+    display: none; /* Hide the default file input */
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8B0000;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .ims-header {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .logout-button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
