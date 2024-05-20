@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/AdminPendingAnnouncements.css';
+import logo from '../assets/iyte_logo-tur.png';
+import { Link } from 'react-router-dom';
 
 function AdminPendingAnnouncements() {
   const [announcements, setAnnouncements] = useState([]);
@@ -40,6 +42,12 @@ function AdminPendingAnnouncements() {
   };
 
   return (
+    <div>
+    <nav className="navbar">
+        <img src={logo} className='logo' alt="Logo" />
+        <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
+        <Link to="/" className="logout-button">Log Out</Link>
+      </nav>
     <div className="announcements-container">
       <h1>Pending Announcements</h1>
       <div className="announcements-list">
@@ -57,6 +65,7 @@ function AdminPendingAnnouncements() {
           <p>No pending announcements found.</p>
         )}
       </div>
+    </div>
     </div>
   );
 }

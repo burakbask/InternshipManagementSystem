@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    background-color: #9A1220;
+  }
+  
+  .navbar img {
+    height: 100px;
+    width: 100px;
+    margin-left: 50px;
+  }
+  
+  .navbar .ims-header {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin: auto;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  
+  }
