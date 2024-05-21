@@ -9,7 +9,7 @@ function AdminHome() {
     const navigate = useNavigate();
 
     const handleDocumentsClick = () => {
-        navigate("/AdminDocumentsPage");
+        navigate("/AdminDocuments");
     };
 
     const handlePendingAnnouncementsClick = () => {

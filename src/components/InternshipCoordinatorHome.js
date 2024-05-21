@@ -12,6 +12,10 @@ function InternshipCoordinatorHome() {
     navigate("/InternshipCoordinatorDocumentsPage");
   };
 
+  const handleAnnouncementClick = () => {
+    navigate("/InternshipCoordinatorAnnouncements");
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -29,8 +33,8 @@ function InternshipCoordinatorHome() {
           <FaCheckCircle className="icon" />
           <div className="icon-text">Verify Internship</div>
         </div>
-        <div className="big-div">
-          <FaBullhorn className="icon" />
+        <div className="big-div" onClick={handleAnnouncementClick}>
+          <FaBullhorn className="icon"  />
           <div className="icon-text">Announcements</div>
         </div>
         <div className="big-div">
