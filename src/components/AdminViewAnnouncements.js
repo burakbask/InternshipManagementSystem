@@ -10,15 +10,19 @@ function AdminViewAnnouncements() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/admin/viewDocuments')
+    axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
       .then(response => {
-        console.log('Response data:', response.data); // Log the response data
-        setAnnouncements(response.data);
+        // status alanı true olan duyuruları filtrele
+        const filteredAnnouncements = response.data.filter(announcement => announcement.status === true);
+        console.log(filteredAnnouncements);
+        
+        setAnnouncements(filteredAnnouncements);
       })
       .catch(error => {
         console.error('Error fetching announcements:', error);
       });
   };
+  
 
   return (
     <div className="announcements-container">

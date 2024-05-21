@@ -10,7 +10,7 @@ function AdminPendingAnnouncements() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/announcements')
+    axios.get('http://localhost:3000/api/admin/viewDocuments')
       .then(response => {
         setAnnouncements(response.data);
       })
@@ -20,7 +20,7 @@ function AdminPendingAnnouncements() {
   };
 
   const handleApprove = (id) => {
-    axios.put(`http://localhost:3000/updateAnnounceStatus`, { id: id })
+    axios.put(`http://localhost:3000/api/admin/updateAnnounceStatus`, { id: id })
       .then(() => {
         fetchAnnouncements(); // Onaylama işleminden sonra duyuruları tekrar çek
       })
@@ -30,7 +30,7 @@ function AdminPendingAnnouncements() {
   };
 
   const handleDecline = (id) => {
-    axios.delete(`http://localhost:3000/api/announcements/${id}`)
+    axios.delete(`http://localhost:3000/api/admin/delete/${id}`)
       .then(() => {
         fetchAnnouncements(); // Silme işleminden sonra duyuruları tekrar çek
       })
@@ -46,7 +46,7 @@ function AdminPendingAnnouncements() {
         {announcements.length > 0 ? (
           announcements.map(announcement => (
             <div key={announcement.id} className="announcement-item">
-              <h2>{announcement.title}</h2>
+              <h2>{announcement.id}</h2>
               <p>{announcement.content}</p>
               <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
               <button className="approve-button" onClick={() => handleApprove(announcement.id)}>Approve</button>
