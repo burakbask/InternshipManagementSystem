@@ -32,8 +32,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ddd; /* Separator between documents */
-  }
+    padding-right: 100px; /* Increased right padding to accommodate delete button */
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
   
   .document-item:last-child {
     border-bottom: none; /* Remove border for the last item */
@@ -43,28 +45,33 @@
     font-size: 16px;
     text-decoration: none;
     color: #007bff;
-    margin-right: 20px; /* Aradaki boşluğu arttır */
-  }
+    margin-right: 20px;
+    max-width: 80%; /* Prevents text from taking full width */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds ellipsis if text is too long */
+}
   
   .document-link:hover {
     text-decoration: underline;
   }
   
-  .delete-button {
-    background-color: #ff6347; /* Tomato red color for delete button */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .delete-button:hover {
+
+.delete-button {
+  background-color: #ff6347;
+  color: white;
+  position: absolute; /* Position absolutely within the document-item */
+  right: 10px; /* Distance from the right edge of document-item */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  width: 80px; /* Fixed width */
+  height: 30px; /* Fixed height */
+}
+
+.delete-button:hover {
     background-color: #e53e30; /* Darker red on hover */
-  }
+}
+
   
   .file-upload-label {
     display: block;

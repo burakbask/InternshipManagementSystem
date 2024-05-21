@@ -54,7 +54,7 @@ function AdminPendingAnnouncements() {
         {announcements.length > 0 ? (
           announcements.map(announcement => (
             <div key={announcement.id} className="announcement-item">
-              <h2>{announcement.title}</h2>
+              <h2>{announcement.id}</h2>
               <p>{announcement.content}</p>
               <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
               <button className="approve-button" onClick={() => handleApprove(announcement.id)}>Approve</button>
