@@ -15,6 +15,7 @@ import StudentUploadPage from './components/StudentUploadPage';
 import AdminDocuments from './components/AdminDocuments';
 import StudentDocuments from './components/StudentDocuments';
 import InternshipCoordinatorAnnouncements from './components/InternshipCoordinatorAnnouncements';
+import CompanyAnnouncement from './components/CompanyAnnouncement';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/StudentHome" element={<StudentHome />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<LoginPage />} />
+        <Route path="/CompanyAnnouncement" element={<CompanyAnnouncement />} />
       </Routes>
     </Router>
   );

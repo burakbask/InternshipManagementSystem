@@ -46,7 +46,7 @@
     text-decoration: none;
     color: #007bff;
     margin-right: 20px;
-    max-width: 80%; /* Prevents text from taking full width */
+    max-width: 60%; /* Prevents text from taking full width */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; /* Adds ellipsis if text is too long */
