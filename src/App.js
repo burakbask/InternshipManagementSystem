@@ -10,11 +10,16 @@ import AdminHome from './components/AdminHome';
 import DepartmentSecretariatHome from './components/DepartmentSecretariatHome';
 import AdminPendingDocuments from './components/AdminPendingAnnouncements'
 import AdminViewAnnouncements from './components/AdminViewAnnouncements'
+import StudentAnnouncementsPage from './components/StudentAnnouncementsPage';
+import StudentUploadPage from './components/StudentUploadPage';
+
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/StudentUploadPage' element={<StudentUploadPage />} />
+        <Route path='/StudentAnnouncementsPage' element={<StudentAnnouncementsPage />} />
         <Route path='/AdminViewAnnouncements' element={<AdminViewAnnouncements />} />
         <Route path='/AdminPendingAnnouncements' element={<AdminPendingDocuments />} />
         <Route path="/DepartmentSecretariatHome" element={<DepartmentSecretariatHome />} />
