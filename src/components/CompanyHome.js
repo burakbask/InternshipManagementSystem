@@ -47,7 +47,7 @@ function CompanyHome() {
                 </div>
                 <div className="big-div" onClick={handleAnnounceClick}>
                     <FaBullhorn className="icon" />
-                    <div className="icon-text">Announcements</div>
+                    <div className="icon-text">Announce</div>
                 </div>
             </div>
             <div className='calendar-container'>

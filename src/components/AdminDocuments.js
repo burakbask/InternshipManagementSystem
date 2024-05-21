@@ -34,7 +34,7 @@ function AdminDocuments() {
         <div className="documents-list">
           {documents.length > 0 ? (
             documents.map(document => (
-              <div key={document.id} className="document-item">
+              <div key={document.id} className="document-adminitem">
                 <h2>Document: {document.id}</h2>
                 <p>{document.title}</p>
                 <p><small>{new Date(document.date).toLocaleString()}</small></p>

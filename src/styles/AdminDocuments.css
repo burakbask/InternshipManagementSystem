@@ -38,7 +38,7 @@
     flex-grow: 1; /* Make it take available height */
   }
   
-  .document-item {
+  .document-adminitem {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
