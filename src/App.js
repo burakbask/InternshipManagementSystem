@@ -12,12 +12,17 @@ import AdminPendingDocuments from './components/AdminPendingAnnouncements'
 import AdminViewAnnouncements from './components/AdminViewAnnouncements'
 import StudentAnnouncementsPage from './components/StudentAnnouncementsPage';
 import StudentUploadPage from './components/StudentUploadPage';
-
+import AdminDocuments from './components/AdminDocuments';
+import StudentDocuments from './components/StudentDocuments';
+import InternshipCoordinatorAnnouncements from './components/InternshipCoordinatorAnnouncements';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/InternshipCoordinatorAnnouncements' element={<InternshipCoordinatorAnnouncements />} />
+        <Route path='/StudentDocuments' element={<StudentDocuments />} />
+        <Route path='/AdminDocuments' element={<AdminDocuments />} />
         <Route path='/StudentUploadPage' element={<StudentUploadPage />} />
         <Route path='/StudentAnnouncementsPage' element={<StudentAnnouncementsPage />} />
         <Route path='/AdminViewAnnouncements' element={<AdminViewAnnouncements />} />

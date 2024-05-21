@@ -9,7 +9,7 @@ function StudentHome() {
     const navigate = useNavigate();
 
     const handleDocumentsClick = () => {
-        navigate("/StudentDocumentsPage");
+        navigate("/StudentDocuments");
     };
 
     const handleUploadClick = () => {
