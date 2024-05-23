@@ -16,6 +16,7 @@ import AdminDocuments from './components/AdminDocuments';
 import StudentDocuments from './components/StudentDocuments';
 import InternshipCoordinatorAnnouncements from './components/InternshipCoordinatorAnnouncements';
 import CompanyAnnouncement from './components/CompanyAnnouncement';
+import CompanyUploadPage from './components/CompanyUploadPage';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<LoginPage />} />
         <Route path="/CompanyAnnouncement" element={<CompanyAnnouncement />} />
+        <Route path='/CompanyUploadPage' element={<CompanyUploadPage />} />
       </Routes>
     </Router>
   );
