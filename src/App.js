@@ -15,7 +15,7 @@ import StudentUploadPage from './components/StudentUploadPage';
 import AdminDocuments from './components/AdminDocuments';
 import StudentDocuments from './components/StudentDocuments';
 import InternshipCoordinatorAnnouncements from './components/InternshipCoordinatorAnnouncements';
-import CompanyAnnouncement from './components/CompanyAnnouncement';
+import CompanyAnnouncements from './components/CompanyAnnouncements';
 import ProtectedRoute from './components/ProtectedRoute';
 import CompanyUploadPage from './components/CompanyUploadPage';
 
@@ -91,9 +91,9 @@ function App() {
         } />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/" element={<LoginPage />} />
-        <Route path="/CompanyAnnouncement" element={
+        <Route path="/CompanyAnnouncements" element={
           <ProtectedRoute allowedRoles={['company']}>
-            <CompanyAnnouncement />
+            <CompanyAnnouncements />
           </ProtectedRoute>
         } />
 
