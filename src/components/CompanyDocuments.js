@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../styles/StudentDocuments.css'; // Create this CSS file for styling
+import '../styles/CompanyDocuments.css'; // Create this CSS file for styling
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
 
-function StudentDocuments() {
+function CompanyDocuments() {
   const [documents, setDocuments] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function StudentDocuments() {
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
       <div className="documents-container">
-        <h1>Internship Documents</h1>
+        <h1>Company Documents</h1>
         <div className="documents-list">
           {documents.length > 0 ? (
             documents.map(document => (
@@ -52,4 +52,4 @@ function StudentDocuments() {
   );
 }
 
-export default StudentDocuments;
+export default CompanyDocuments;
