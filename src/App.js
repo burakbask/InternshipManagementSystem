@@ -17,6 +17,8 @@ import StudentDocuments from './components/StudentDocuments';
 import InternshipCoordinatorAnnouncements from './components/InternshipCoordinatorAnnouncements';
 import CompanyAnnouncement from './components/CompanyAnnouncement';
 import ProtectedRoute from './components/ProtectedRoute';
+import CompanyUploadPage from './components/CompanyUploadPage';
+
 
 function App() {
   return (
