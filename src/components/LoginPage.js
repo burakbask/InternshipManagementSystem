@@ -21,6 +21,9 @@ function LoginPage() {
       });
 
       if (response.status === 200) {
+        
+        sessionStorage.setItem('sessionRole', response.data); // Rolü sessionStorage'da sakla
+        sessionStorage.setItem('sessionEmail', email);
         setMessage('The login is successful. You are redirected...');
         setIsError(false);
 
@@ -60,9 +63,8 @@ function LoginPage() {
         <Link to="/signup" className="signup-button">Sign Up</Link>
       </nav>
       <div className="login-form-container">
-
         <form onSubmit={handleSubmit}>
-          <h2 className="form-title">LOGIN</h2> {/* Login başlığı eklendi */}
+          <h2 className="form-title">LOGIN</h2>
           {message && <div className={isError ? "error-message" : "success-message"}>{message}</div>}
           <div className="input-group">
             <label htmlFor="email">Email:</label>
