@@ -96,6 +96,12 @@ function App() {
             <CompanyAnnouncement />
           </ProtectedRoute>
         } />
+
+        <Route path="/CompanyUplaodPage" element={
+          <ProtectedRoute allowedRoles={['company']}>
+            <CompanyUploadPage />
+          </ProtectedRoute>
+        } />
       </Routes>
     </Router>
   );
