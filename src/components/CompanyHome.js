@@ -21,7 +21,7 @@ function CompanyHome() {
     };
 
     const handleAnnounceClick = () => {
-        navigate("/CompanyAnnouncement");
+        navigate("/CompanyAnnouncements");
     };
 
     return (
