@@ -18,6 +18,7 @@ import InternshipCoordinatorAnnouncements from './components/InternshipCoordinat
 import CompanyAnnouncement from './components/CompanyAnnouncement';
 import ProtectedRoute from './components/ProtectedRoute';
 import CompanyUploadPage from './components/CompanyUploadPage';
+import CompanyDocuments from './components/CompanyDocuments';
 
 
 function App() {
@@ -100,6 +101,11 @@ function App() {
         <Route path="/CompanyUplaodPage" element={
           <ProtectedRoute allowedRoles={['company']}>
             <CompanyUploadPage />
+          </ProtectedRoute>
+        } />
+         <Route path="/CompanyDocuments" element={
+          <ProtectedRoute allowedRoles={['company']}>
+            <CompanyDocuments />
           </ProtectedRoute>
         } />
       </Routes>

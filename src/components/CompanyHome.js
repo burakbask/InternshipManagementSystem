@@ -9,7 +9,7 @@ function CompanyHome() {
     const navigate = useNavigate();
 
     const handleDocumentsClick = () => {
-        navigate("/CompanyDocumentsPage");
+        navigate("/CompanyDocuments");
     };
 
     const handleUploadClick = () => {
