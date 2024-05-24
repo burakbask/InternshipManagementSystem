@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/AdminHome.css'; // Make sure the CSS path is correct
+import '../styles/AdminHome.css'; // Ensure this CSS path is correct
 
 function StudentApplicationDocuments() {
   const [documents, setDocuments] = useState([]);
@@ -21,26 +21,16 @@ function StudentApplicationDocuments() {
       });
   };
 
-  const handleFileUpload = (event) => {
-    const files = event.target.files;
-    const formData = new FormData();
-    Array.from(files).forEach(file => {
-      formData.append('files', file);
-    });
-
-    axios.post('http://localhost:3000/api/student/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .then(response => {
-      alert('File uploaded successfully');
-      fetchDocuments(); // Refresh the list after upload
-    })
-    .catch(error => {
-      console.error('File upload error:', error);
-      alert('Error uploading file');
-    });
+  const handleDeleteDocument = (id) => {
+    axios.delete(`http://localhost:3000/api/student/delete/${id}`)
+      .then(() => {
+        // Remove the deleted document from the state
+        const updatedDocuments = documents.filter(doc => doc.id !== id);
+        setDocuments(updatedDocuments);
+      })
+      .catch(error => {
+        console.error('Error deleting document:', error);
+      });
   };
 
   return (
@@ -58,14 +48,15 @@ function StudentApplicationDocuments() {
                 <a className="document-link" href={`http://localhost:3000/api/student/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
+                <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
+                  Delete
+                </button>
               </div>
             ))
           ) : (
             <p>No documents found.</p>
           )}
         </div>
-        <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
-        <input type="file" id="file-upload" accept=".pdf" multiple onChange={handleFileUpload} className="file-upload-input"/>
       </div>
     </div>
   );
