@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import internshipImage from '../assets/internshipimage.webp'; // Update the path to the new image file
 
 function StudentAnnouncementsPage() {
-  const [announcements, setAnnouncements] = useState([]);
+  const [documents, setAnnouncements] = useState([]);
 
   useEffect(() => {
     fetchAnnouncements();
@@ -33,12 +33,12 @@ function StudentAnnouncementsPage() {
       <div className="announcements-container">
         <h1>Announcements</h1>
         <div className="announcements-list">
-          {announcements.length > 0 ? (
-            announcements.map(announcement => (
-              <div key={announcement.id} className="announcement-item">
-                <h2>Internship Announcement: {announcement.id}</h2>
-                <img src={internshipImage} alt="Announcement" className="announcement-image"/>
-                <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
+        {documents.length > 0 ? (
+            documents.map(doc => (
+              <div key={doc.id} className="document-item">
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                  {doc.fileName}
+                </a>
               </div>
             ))
           ) : (
