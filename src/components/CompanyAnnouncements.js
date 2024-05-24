@@ -27,23 +27,24 @@ function CompanyAnnouncements() {
     };
 
     const handleFileChange = (event) => {
-        const files = event.target.files;
-        if (files.length === 0) {
-            return; // No file selected
-        }
-
-        const formData = new FormData();
-        formData.append('file', files[0]); // Handle single file
-
-        axios.post('http://localhost:3000/api/upload', formData)
-        .then(response => {
-            alert('File uploaded successfully');
-            fetchAnnouncements(); // Refresh announcements after upload
-        })
-        .catch(error => {
-            console.error('Error uploading file:', error);
-        });
-    };
+      const files = event.target.files;
+      if (files.length === 0) {
+          return; // No file selected
+      }
+  
+      const formData = new FormData();
+      // Update here to match the backend expected field name
+      formData.append('files', files[0]); // Handle single file
+  
+      axios.post('http://localhost:3000/api/company/upload', formData)
+      .then(response => {
+          alert('File uploaded successfully');
+          fetchAnnouncements(); // Refresh announcements after upload
+      })
+      .catch(error => {
+          console.error('Error uploading file:', error);
+      });
+  };
 
     return (
         <div>

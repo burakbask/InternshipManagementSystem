@@ -33,12 +33,11 @@ function StudentDocuments() {
         <h1>Internship Documents</h1>
         <div className="documents-list">
           {documents.length > 0 ? (
-            documents.map(document => (
-              <div key={document.id} className="document-item">
-                <h2>Document: {document.id}</h2>
-                <p>{document.title}</p>
-                <p><small>{new Date(document.date).toLocaleString()}</small></p>
-                <a href={document.url} target="_blank" rel="noopener noreferrer" className="view-button">View Document</a>
+            documents.map(doc => (
+              <div key={doc.id} className="document-item">
+              <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                {doc.fileName}
+              </a>
               </div>
             ))
           ) : (
