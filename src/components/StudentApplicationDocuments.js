@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/AdminHome.css'; // Ensure this CSS path is correct
+import '../styles/StudentApplicationDocuments.css'; // Ensure this CSS path is correct
 
 function StudentApplicationDocuments() {
   const [documents, setDocuments] = useState([]);
