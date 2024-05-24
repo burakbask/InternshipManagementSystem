@@ -19,7 +19,7 @@ import CompanyAnnouncements from './components/CompanyAnnouncements';
 import ProtectedRoute from './components/ProtectedRoute';
 import CompanyUploadPage from './components/CompanyUploadPage';
 import CompanyDocuments from './components/CompanyDocuments';
-import StudentApplicationDocuments from './components/StudentApplicationDocuments';
+
 
 
 function App() {
@@ -117,6 +117,11 @@ function App() {
         <Route path="/SecreteriatHome" element={
           <ProtectedRoute allowedRoles={['dept_secreteriat']}>
             <DepartmentSecretariatHome />
+          </ProtectedRoute>
+        } />
+        <Route path="/DepartmentSecretariatSSIPage" element={
+          <ProtectedRoute allowedRoles={['dept_secreteriat']}>
+            <DepartmentSecretariatSSIPage />
           </ProtectedRoute>
         } />
       </Routes>
