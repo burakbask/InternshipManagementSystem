@@ -16,7 +16,7 @@ function InternshipCoordinatorDocumentsPage() {
   const fetchDocuments = () => {
     axios.get('http://localhost:3000/api/commission/viewDocuments')
       .then(response => {
-        console.log('Fetched documents:', response.data); // Gelen veriyi kontrol edin
+        console.log('Fetched documents:', response.data);
         setDocuments(response.data);
       })
       .catch(error => {
@@ -27,7 +27,7 @@ function InternshipCoordinatorDocumentsPage() {
   const handleDeleteDocument = (id) => {
     axios.delete(`http://localhost:3000/api/commission/delete/${id}`)
       .then(() => {
-        fetchDocuments(); // Silme işlemi başarılı olduktan sonra döküman listesini yeniden çek
+        fetchDocuments();
       })
       .catch(error => {
         console.error('Error deleting document:', error);
@@ -38,7 +38,7 @@ function InternshipCoordinatorDocumentsPage() {
     const files = event.target.files;
     const formData = new FormData();
     Array.from(files).forEach(file => {
-      formData.append('files', file); // 'files' backend'de birden fazla dosyayı kabul edecek şekilde ayarlanmalıdır.
+      formData.append('files', file);
     });
 
     axios.post('http://localhost:3000/api/commission/upload', formData, {
@@ -49,7 +49,7 @@ function InternshipCoordinatorDocumentsPage() {
     .then(response => {
       alert('File uploaded successfully');
       console.log(`File upload success:`, response.data);
-      fetchDocuments(); // Yükleme başarılı olduktan sonra döküman listesini yeniden çek
+      fetchDocuments();
     })
     .catch(error => {
       console.error(`File upload error:`, error);

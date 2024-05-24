@@ -98,7 +98,7 @@ function App() {
           </ProtectedRoute>
         } />
 
-        <Route path="/CompanyUplaodPage" element={
+        <Route path="/CompanyUploadPage" element={
           <ProtectedRoute allowedRoles={['company']}>
             <CompanyUploadPage />
           </ProtectedRoute>
