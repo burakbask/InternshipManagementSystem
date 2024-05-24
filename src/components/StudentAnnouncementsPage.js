@@ -31,7 +31,7 @@ function StudentAnnouncementsPage() {
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
       <div className="announcements-container">
-        <h1>Student Announcements</h1>
+        <h1>Announcements</h1>
         <div className="announcements-list">
           {announcements.length > 0 ? (
             announcements.map(announcement => (
