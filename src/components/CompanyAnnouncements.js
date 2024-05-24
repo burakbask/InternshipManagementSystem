@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/iyte_logo-tur.png'; // Ensure your logo path is correct
 
 function CompanyAnnouncements() {
-    const [announcements, setAnnouncements] = useState([]);
+    const [documents, setDocuments] = useState([]);
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        fetchAnnouncements();
+        fetchDocuments();
     }, []);
 
-    const fetchAnnouncements = () => {
+    const fetchDocuments = () => {
         axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
         .then(response => {
-            setAnnouncements(response.data);
+            setDocuments(response.data);
         })
         .catch(error => {
-            console.error('Error fetching announcements:', error);
+            console.error('Error fetching documents:', error);
         });
     };
 
@@ -27,19 +27,22 @@ function CompanyAnnouncements() {
     };
 
     const handleFileChange = (event) => {
-      const files = event.target.files;
-      if (files.length === 0) {
+      const file = event.target.files; // Changed from `event.target.file` to `event.target.files`
+      if (file.length === 0) {
           return; // No file selected
       }
   
       const formData = new FormData();
-      // Update here to match the backend expected field name
-      formData.append('files', files[0]); // Handle single file
+      formData.append('file', file[0]); // Handle single file
   
-      axios.post('http://localhost:3000/api/company/upload', formData)
+      axios.post('http://localhost:3000/api/company/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+      })
       .then(response => {
           alert('File uploaded successfully');
-          fetchAnnouncements(); // Refresh announcements after upload
+          fetchDocuments(); // Refresh documents after upload
       })
       .catch(error => {
           console.error('Error uploading file:', error);
@@ -54,19 +57,19 @@ function CompanyAnnouncements() {
                 <Link to="/" className="logout-button">Log Out</Link>
             </nav>
             <div className="announcements-container">
-                {announcements.length > 0 ? (
-                    announcements.map(announcement => (
-                        <div key={announcement.id} className="announcement-item">
-                            <h2>Announcement Id: {announcement.id}</h2>
-                            <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
+                {documents.length > 0 ? (
+                    documents.map(document => (
+                        <div key={document.id} className="announcement-item">
+                            <h2>Document Id: {document.id}</h2>
+                            <p><small>{new Date(document.date).toLocaleString()}</small></p>
                         </div>
                     ))
                 ) : (
-                    <div className="no-announcements">No announcements found.</div>
+                    <div className="no-announcements">No documents found.</div>
                 )}
                 <input type="file" id="file-upload" accept=".pdf" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }}/>
                 <button className="announcement-button" onClick={handleFileSelectAndUpload}>
-                    Announce
+                    Upload Document
                 </button>
             </div>
         </div>
