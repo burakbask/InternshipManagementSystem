@@ -27,17 +27,22 @@ function CompanyAnnouncements() {
     };
 
     const handleFileChange = (event) => {
-      const file = event.target.files; // Changed from `event.target.file` to `event.target.files`
-      if (file.length === 0) {
+      const files = event.target.files;
+      if (files.length === 0) {
           return; // No file selected
       }
   
+      const file = files[0];
       const formData = new FormData();
-      formData.append('file', file[0]); // Handle single file
+      formData.append('file', file); // Append the single selected file
+  
+      // Retrieve the token from storage
+      const authToken = localStorage.getItem('authToken'); // Replace 'authToken' with your actual token key
   
       axios.post('http://localhost:3000/api/company/upload', formData, {
           headers: {
-            'Content-Type': 'multipart/form-data'
+              'Content-Type': 'multipart/form-data',
+              'Authorization': `Bearer ${authToken}`  // Include the token in the Authorization header
           }
       })
       .then(response => {
@@ -46,8 +51,10 @@ function CompanyAnnouncements() {
       })
       .catch(error => {
           console.error('Error uploading file:', error);
+          alert('Error uploading file: ' + error.response.data.message);
       });
   };
+  
 
     return (
         <div>
@@ -57,11 +64,12 @@ function CompanyAnnouncements() {
                 <Link to="/" className="logout-button">Log Out</Link>
             </nav>
             <div className="announcements-container">
-                {documents.length > 0 ? (
-                    documents.map(document => (
-                        <div key={document.id} className="announcement-item">
-                            <h2>Document Id: {document.id}</h2>
-                            <p><small>{new Date(document.date).toLocaleString()}</small></p>
+            {documents.length > 0 ? (
+            documents.map(doc => (
+              <div key={doc.id} className="document-item">
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                  {doc.fileName}
+                </a>
                         </div>
                     ))
                 ) : (
