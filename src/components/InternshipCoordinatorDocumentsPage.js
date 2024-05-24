@@ -47,6 +47,7 @@ function InternshipCoordinatorDocumentsPage() {
       },
     })
     .then(response => {
+      alert('File uploaded successfully');
       console.log(`File upload success:`, response.data);
       fetchDocuments(); // Yükleme başarılı olduktan sonra döküman listesini yeniden çek
     })

@@ -15,8 +15,8 @@ function InternshipCoordinatorAnnouncements() {
   const fetchAnnouncements = () => {
     axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
       .then(response => {
-        const filteredAnnouncements = response.data.filter(announcement => announcement.status === true);
-        setAnnouncements(filteredAnnouncements);
+        
+        setAnnouncements(response.data);
       })
       .catch(error => {
         console.error('Error fetching announcements:', error);
@@ -36,7 +36,7 @@ function InternshipCoordinatorAnnouncements() {
           {announcements.length > 0 ? (
             announcements.map(announcement => (
               <div key={announcement.id} className="announcement-item">
-                <h2>Announcement Id:{announcement.id}</h2>
+                <h2>Internship Oppourtunity:{announcement.id}</h2>
                 <img src={internshipImage} alt="Internship" className="announcement-image"/>
                 <p>You can view announcement.</p>
                 <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
