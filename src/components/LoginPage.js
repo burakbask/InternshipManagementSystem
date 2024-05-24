@@ -41,6 +41,9 @@ function LoginPage() {
           case 'admin':
             setTimeout(() => navigate('/AdminHome'), 2000);
             break;
+          case 'dept_secreteriat':
+            setTimeout(()=> navigate('/SecreteriatHome'),2000);
+            break;
           default:
             setMessage('Unknown type, please contact support.');
             setIsError(true);

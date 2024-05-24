@@ -21,6 +21,7 @@ import CompanyUploadPage from './components/CompanyUploadPage';
 import CompanyDocuments from './components/CompanyDocuments';
 
 
+
 function App() {
   return (
     <Router>
@@ -106,6 +107,11 @@ function App() {
          <Route path="/CompanyDocuments" element={
           <ProtectedRoute allowedRoles={['company']}>
             <CompanyDocuments />
+          </ProtectedRoute>
+        } />
+        <Route path="/SecreteriatHome" element={
+          <ProtectedRoute allowedRoles={['dept_secreteriat']}>
+            <DepartmentSecretariatHome />
           </ProtectedRoute>
         } />
       </Routes>

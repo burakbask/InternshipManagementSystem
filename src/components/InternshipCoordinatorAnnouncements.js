@@ -3,10 +3,10 @@ import axios from 'axios';
 import '../styles/InternshipCoordinatorAnnouncements.css';
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
-import internshipImage from '../assets/internshipimage.webp'; // Update the path to the new image file
+import logo2 from '../assets/internshipimage.webp'; // Update the path to the new image file
 
 function InternshipCoordinatorAnnouncements() {
-  const [announcements, setAnnouncements] = useState([]);
+  const [documents, setAnnouncements] = useState([]);
 
   useEffect(() => {
     fetchAnnouncements();
@@ -32,14 +32,15 @@ function InternshipCoordinatorAnnouncements() {
       </nav>
       <div className="announcements-container">
         <h1>Internship Announcements</h1>
+        <img src={logo2} alt="Document" className="document-image" />
         <div className="announcements-list">
-          {announcements.length > 0 ? (
-            announcements.map(announcement => (
-              <div key={announcement.id} className="announcement-item">
-                <h2>Internship Oppourtunity:{announcement.id}</h2>
-                <img src={internshipImage} alt="Internship" className="announcement-image"/>
-                <p>You can view announcement.</p>
-                <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
+        {documents.length > 0 ? (
+            documents.map(doc => (
+              <div key={doc.id} className="document-item">
+              <img src={logo2} className="document-image" />
+              <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                {doc.fileName}
+              </a>
               </div>
             ))
           ) : (

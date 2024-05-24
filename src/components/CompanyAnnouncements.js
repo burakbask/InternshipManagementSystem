@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../styles/CompanyAnnouncements.css'; // Ensure this path is correct
 import { Link } from 'react-router-dom';
 import logo from '../assets/iyte_logo-tur.png'; // Ensure your logo path is correct
+import logo2 from '../assets/internshipimage.webp';
 
 function CompanyAnnouncements() {
     const [documents, setDocuments] = useState([]);
@@ -67,6 +68,7 @@ function CompanyAnnouncements() {
             {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
+                <img src={logo2} alt="Document" className="document-image" />
                 <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
