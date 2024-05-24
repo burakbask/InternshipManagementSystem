@@ -9,7 +9,7 @@ function DepartmentSecretariatHome() {
     const navigate = useNavigate();
 
     const handleDocumentsClick = () => {
-        navigate("/DepartmentSecretariatDocumentsPage");
+        navigate("/DepartmentSecretariatDocuments");
     };
 
     const handleSSIClick = () => {

@@ -49,21 +49,22 @@ function DepartmentSecretariatSSIPage() {
     <div>
       <nav className="navbar">
         <img src={logo} className='logo' alt="Logo" />
-        <p className='ims-header'>SSI MANAGEMENT SYSTEM</p>
+        <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
       <div className="ssi-container">
         <h1>Pending SSI Documents</h1>
         <div className="ssi-list">
-          {ssis.length > 0 ? (
-            ssis.map(ssi => (
-              <div key={ssi.id} className="ssi-item">
-                <h2>SSI Document: {ssi.id}</h2>
-                <p>You can view SSI document.</p>
-                <p><small>{new Date(ssi.date).toLocaleString()}</small></p>
+        {ssis.length > 0 ? (
+            ssis.map(doc => (
+              <div key={doc.id} className="document-item">
+              
+              <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                {doc.fileName}
+              </a>
                 <div className="buttons-container">
-                  <button className="approve-button" onClick={() => handleApprove(ssi.id)}>Approve</button>
-                  <button className="decline-button" onClick={() => handleDecline(ssi.id)}>Decline</button>
+                  <button className="approve-button" onClick={() => handleApprove(doc.id)}>Approve</button>
+                  <button className="decline-button" onClick={() => handleDecline(doc.id)}>Decline</button>
                 </div>
               </div>
             ))

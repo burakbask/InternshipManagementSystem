@@ -21,6 +21,7 @@ import CompanyUploadPage from './components/CompanyUploadPage';
 import CompanyDocuments from './components/CompanyDocuments';
 import StudentApplicationDocuments from './components/StudentApplicationDocuments';
 import DepartmentSecretariatSSIPage from './components/DepartmentSecretariatSSIPage';
+import DepartmentSecretariatDocuments from './components/DepartmentSecretariatDocuments';
 
 function App() {
   return (
@@ -122,6 +123,11 @@ function App() {
         <Route path="/DepartmentSecretariatSSIPage" element={
           <ProtectedRoute allowedRoles={['dept_secreteriat']}>
             <DepartmentSecretariatSSIPage />
+          </ProtectedRoute>
+        } />
+          <Route path="/DepartmentSecretariatDocuments" element={
+          <ProtectedRoute allowedRoles={['dept_secreteriat']}>
+            <DepartmentSecretariatDocuments />
           </ProtectedRoute>
         } />
       </Routes>
