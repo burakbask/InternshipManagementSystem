@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/StudentUploadPage.css';
+import '../styles/AdminHome.css'; // Make sure the CSS path is correct
 
-function StudentUploadPage() {
+function StudentApplicationDocuments() {
   const [documents, setDocuments] = useState([]);
 
   useEffect(() => {
@@ -16,21 +14,10 @@ function StudentUploadPage() {
   const fetchDocuments = () => {
     axios.get('http://localhost:3000/api/student/viewDocuments')
       .then(response => {
-        console.log('Fetched documents:', response.data);
         setDocuments(response.data);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
-      });
-  };
-
-  const handleDeleteDocument = (id) => {
-    axios.delete(`http://localhost:3000/api/student/delete/${id}`)
-      .then(() => {
-        fetchDocuments();
-      })
-      .catch(error => {
-        console.error('Error deleting document:', error);
       });
   };
 
@@ -47,11 +34,12 @@ function StudentUploadPage() {
       },
     })
     .then(response => {
-      console.log(`File upload success:`, response.data);
-      fetchDocuments();
+      alert('File uploaded successfully');
+      fetchDocuments(); // Refresh the list after upload
     })
     .catch(error => {
-      console.error(`File upload error:`, error);
+      console.error('File upload error:', error);
+      alert('Error uploading file');
     });
   };
 
@@ -70,13 +58,10 @@ function StudentUploadPage() {
                 <a className="document-link" href={`http://localhost:3000/api/student/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
-                <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </button>
               </div>
             ))
           ) : (
-            <p>There are no documents.</p>
+            <p>No documents found.</p>
           )}
         </div>
         <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
@@ -86,5 +71,4 @@ function StudentUploadPage() {
   );
 }
 
-export default StudentUploadPage;
-
+export default StudentApplicationDocuments;
