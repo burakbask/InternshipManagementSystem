@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaFolder, FaUpload, FaBullhorn } from 'react-icons/fa';
+import { FaFolder, FaUpload, FaBullhorn, FaAlgolia, FaReadme } from 'react-icons/fa';
 import logo from '../assets/iyte_logo-tur.png';
 import '../styles/StudentHome.css';
 import Calendar from 'react-calendar';
@@ -10,6 +10,9 @@ function StudentHome() {
 
     const handleDocumentsClick = () => {
         navigate("/StudentDocuments");
+    };
+    const handleDocuments2Click = () => {
+        navigate("/StudentApplicationDocuments");
     };
 
     const handleUploadClick = () => {
@@ -32,6 +35,10 @@ function StudentHome() {
                 <div className="big-div" onClick={handleDocumentsClick}>
                     <FaFolder className="icon" />
                     <div className="icon-text">Documents</div>
+                </div>
+                <div className="big-div" onClick={handleDocuments2Click}>
+                    <FaReadme className="icon" />
+                    <div className="icon-text">My Application Documents</div>
                 </div>
                 <div className="big-div" onClick={handleUploadClick}>
                     <FaUpload className="icon" />
