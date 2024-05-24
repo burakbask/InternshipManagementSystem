@@ -19,8 +19,8 @@ import CompanyAnnouncements from './components/CompanyAnnouncements';
 import ProtectedRoute from './components/ProtectedRoute';
 import CompanyUploadPage from './components/CompanyUploadPage';
 import CompanyDocuments from './components/CompanyDocuments';
-
-
+import StudentApplicationDocuments from './components/StudentApplicationDocuments';
+import DepartmentSecretariatSSIPage from './components/DepartmentSecretariatSSIPage';
 
 function App() {
   return (
