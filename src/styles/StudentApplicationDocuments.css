@@ -1,0 +1,121 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif; /* Change the font to whatever you prefer */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8B0000; /* Deep red background for the navbar */
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    height: 50px; /* Adjust size as needed */
+}
+
+.ims-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logout-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styling */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 80%; /* Adjust width as necessary */
+    margin: 20px auto; /* Center the content */
+}
+
+.document-list {
+    width: 100%; /* Full width of the content area */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    padding: 15px;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Separator for items */
+}
+
+.document-item:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+.document-link {
+    font-size: 16px;
+    color: #007bff; /* Bootstrap blue for links */
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ellipsis for overflowed text */
+    white-space: nowrap;
+    max-width: 80%; /* Maximum width for text to avoid overflow */
+}
+
+.document-link:hover {
+    text-decoration: underline; /* Underline on hover for better UI */
+}
+
+/* Upload and Delete Button Styling */
+.file-upload-label {
+    display: block;
+    background-color: #4CAF50; /* Green background for upload label */
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.file-upload-input {
+    display: none; /* Hide the file input element */
+}
+
+.delete-button {
+    background-color: #ff6347; /* Red background for delete button */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #e53e30; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        width: 95%; /* More width on smaller screens */
+    }
+
+    .document-link {
+        max-width: 60%; /* Less width for link on smaller screens */
+    }
+}
