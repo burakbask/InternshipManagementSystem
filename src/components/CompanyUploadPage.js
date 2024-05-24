@@ -59,7 +59,7 @@ function CompanyUploadPage() {
     <div>
       <nav className="navbar">
         <img src={logo} className='logo' alt="Logo" />
-        <p className='ims-header'>COMPANY DOCUMENT UPLOAD SYSTEM</p>
+        <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
       <div className="content">
