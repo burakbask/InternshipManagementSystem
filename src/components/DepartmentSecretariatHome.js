@@ -31,7 +31,7 @@ function DepartmentSecretariatHome() {
                 </div>
                 <div className="big-div" onClick={handleSSIClick}>
                     <FaFile className="icon" />
-                    <div className="icon-text">SSI Process</div>
+                    <div className="icon-text">Handle SSI</div>
                 </div>
             </div>
             <div className='calendar-container'>
