@@ -37,10 +37,12 @@ function CompanyHome() {
                     <FaFolder className="icon" />
                     <div className="icon-text">Documents</div>
                 </div>
+                {/*
                 <div className="big-div" onClick={handleUploadClick}>
                     <FaUpload className="icon" />
                     <div className="icon-text">Upload Document</div>
                 </div>
+    */}
                 <div className="big-div" onClick={handleVerifyClick}>
                     <FaCheckCircle className="icon" />
                     <div className="icon-text">Upload Summer Practice Application Form</div>
