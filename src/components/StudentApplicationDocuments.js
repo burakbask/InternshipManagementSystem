@@ -12,14 +12,18 @@ function StudentApplicationDocuments() {
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('http://localhost:3000/api/student/viewDocuments')
+    axios.get('http://localhost:3000/api/student/viewSpafs')
       .then(response => {
-        setDocuments(response.data);
+        // Set documents to companySpafs if it exists and is an array, otherwise set an empty array
+        setDocuments(Array.isArray(response.data.companySpafs) ? response.data.companySpafs : []);
+        console.log(response.data);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
+        // Also set documents to an empty array in case of error
+        setDocuments([]);
       });
-  };
+};
 
   const handleDeleteDocument = (id) => {
     axios.delete(`http://localhost:3000/api/student/delete/${id}`)
