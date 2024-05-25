@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8B0000;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    height: 50px;
+}
+
+.ims-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logout-button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+}
