@@ -67,7 +67,7 @@ function CompanyApplicationForm() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-
+      <h1 className="company-application-list">Company Announcements</h1>
       {documents.length > 0 ? (
         documents.map(doc => (
           <div key={doc.id} className="document-item">
