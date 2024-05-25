@@ -8,7 +8,6 @@ import '../styles/CompanyUploadPage.css';
 
 function CompanyUploadPage() {
   const [documents, setDocuments] = useState([]);
-  const [email, setEmail] = useState(''); // State to store the email
 
   useEffect(() => {
     fetchDocuments();
@@ -36,15 +35,14 @@ function CompanyUploadPage() {
   };
 
   const handleFileUpload = (event) => {
-    const file = event.target.files[0];
+    const files = event.target.files;
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('studentMail', email); // Append the email to the form data
+    Array.from(files).forEach(file => {
+      formData.append('files', file);
+    });
 
-    const token = localStorage.getItem('token');
-    axios.post('http://localhost:3000/api/company/uploadCompanySpaf', formData, {
+    axios.post('http://localhost:3000/api/company/upload', formData, {
       headers: {
-        'Authorization': `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
       },
     })
@@ -69,7 +67,7 @@ function CompanyUploadPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`http://localhost:3000/api/company/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
@@ -81,15 +79,8 @@ function CompanyUploadPage() {
             <p>There are no documents.</p>
           )}
         </div>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          className="email-input"
-        />
         <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
-        <input type="file" id="file-upload" accept=".pdf" onChange={handleFileUpload} className="file-upload-input"/>
+        <input type="file" id="file-upload" accept=".pdf" multiple onChange={handleFileUpload} className="file-upload-input"/>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
 
-
 function InternshipCoordinatorSPAF() {
   const [spafs, setSpafs] = useState([]);
 
@@ -13,37 +12,52 @@ function InternshipCoordinatorSPAF() {
   }, []);
 
   const fetchSpafs = () => {
-    axios.get('http://localhost:3000/api/commission/approve-application')
-      .then(response => {
-        setSpafs(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching SPAFs:', error);
-      });
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    axios.get('http://localhost:3000/api/commission/approve-application', {
+      headers: {
+        Authorization: `Bearer ${token}` // Set the Authorization header
+      }
+    })
+    .then(response => {
+      setSpafs(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching SPAFs:', error);
+    });
   };
 
   const handleApprove = (id) => {
-    axios.put(`http://localhost:3000/api/coordinator/updateSpafStatus`, { id: id })
-      .then(() => {
-        setSpafs(prevSpafs => 
-          prevSpafs.filter(spaf => spaf.id !== id)
-        );
-      })
-      .catch(error => {
-        console.error('Error approving SPAF:', error);
-      });
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    axios.put(`http://localhost:3000/api/coordinator/updateSpafStatus`, { id: id }, {
+      headers: {
+        Authorization: `Bearer ${token}` // Set the Authorization header
+      }
+    })
+    .then(() => {
+      setSpafs(prevSpafs => 
+        prevSpafs.filter(spaf => spaf.id !== id)
+      );
+    })
+    .catch(error => {
+      console.error('Error approving SPAF:', error);
+    });
   };
 
   const handleDecline = (id) => {
-    axios.delete(`http://localhost:3000/api/coordinator/deleteSpaf/${id}`)
-      .then(() => {
-        setSpafs(prevSpafs => 
-          prevSpafs.filter(spaf => spaf.id !== id)
-        );
-      })
-      .catch(error => {
-        console.error('Error declining SPAF:', error);
-      });
+    const token = localStorage.getItem('token'); // Retrieve token from localStorage
+    axios.delete(`http://localhost:3000/api/coordinator/deleteSpaf/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}` // Set the Authorization header
+      }
+    })
+    .then(() => {
+      setSpafs(prevSpafs => 
+        prevSpafs.filter(spaf => spaf.id !== id)
+      );
+    })
+    .catch(error => {
+      console.error('Error declining SPAF:', error);
+    });
   };
 
   return (
