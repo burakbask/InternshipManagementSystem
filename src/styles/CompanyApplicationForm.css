@@ -10,7 +10,12 @@
 .logo {
     height: 50px;
 }
+.companydocts {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .ims-header {
     font-size: 24px;
     font-weight: bold;
@@ -24,3 +29,46 @@
     text-decoration: none;
     font-size: 16px;
 }
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+
+
+.input-container, .email-input {
+    display: flex; /* Makes the label and input take full width of their container */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensures full width to align properly */
+    max-width: 500px; /* Optional: Restricts the maximum width to keep form elements aligned nicely */
+    margin: 10px auto; /* Centers the label and input and adds vertical spacing */
+  }
+  
+  .email-input {
+    padding: 8px;
+    border: 2px solid #ccc; /* Adds a border for better visibility */
+    border-radius: 4px; /* Rounds the corners */
+    margin-top: 0; /* Removes any top margin to keep the label close */
+  }
+
+  .button25 {
+    background-color: rgb(125, 34, 34);
+    font-style: bold;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+  }
+
+  .button25:hover {
+    background-color: rgb(1, 155, 1);
+  }

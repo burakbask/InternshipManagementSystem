@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/CompanyUploadPage.css';
+import '../styles/CompanyApplicationForm.css';
 
 function CompanyApplicationForm() {
   const [documents, setDocuments] = useState([]);
@@ -67,7 +67,7 @@ function CompanyApplicationForm() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <h1>Company Application Documents</h1>
+
       {documents.length > 0 ? (
         documents.map(doc => (
           <div key={doc.id} className="document-item">
@@ -79,25 +79,28 @@ function CompanyApplicationForm() {
       ) : (
         <p>No documents found.</p>
       )}
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter student's email"
-        className="email-input"
-      />
-      <input
-        type="file"
-        onChange={handleFileUpload}
-        style={{ display: 'none' }}
-        id="hidden-file-input"
-        accept=".pdf"
-      />
-      <button onClick={() => document.getElementById('hidden-file-input').click()}>
-        Upload Document
-      </button>
+      <div className="input-container">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter student's email"
+          className="email-input"
+        />
+        <input
+          type="file"
+          onChange={handleFileUpload}
+          style={{ display: 'none' }}
+          id="hidden-file-input"
+          accept=".pdf"
+        />
+        <button className='button25'onClick={() => document.getElementById('hidden-file-input').click()}>
+          Upload Document
+        </button>
+      </div>
     </div>
   );
+  
 }
 
 export default CompanyApplicationForm;
