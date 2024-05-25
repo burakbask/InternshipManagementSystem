@@ -1,3 +1,9 @@
+.p_header{
+  margin-left: 630px;
+}
+
+
+
 .content {
   display: flex;
   flex-direction: column;
