@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
+import '../styles/InternshipCoordinatorSPAF.css';
 
 function InternshipCoordinatorSPAF() {
   const [spafs, setSpafs] = useState([]);
