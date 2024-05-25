@@ -17,7 +17,7 @@ function CompanyHome() {
     };
 
     const handleVerifyClick = () => {
-        navigate("/CompanyVerifyPage");
+        navigate("/CompanyApplicationForm");
     };
 
     const handleAnnounceClick = () => {
@@ -43,7 +43,7 @@ function CompanyHome() {
                 </div>
                 <div className="big-div" onClick={handleVerifyClick}>
                     <FaCheckCircle className="icon" />
-                    <div className="icon-text">Verify Summer Practice Report</div>
+                    <div className="icon-text">Upload Summer Practice Application Form</div>
                 </div>
                 <div className="big-div" onClick={handleAnnounceClick}>
                     <FaBullhorn className="icon" />

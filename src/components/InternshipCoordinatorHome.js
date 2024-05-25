@@ -15,6 +15,9 @@ function InternshipCoordinatorHome() {
   const handleAnnouncementClick = () => {
     navigate("/InternshipCoordinatorAnnouncements");
   };
+  const handleSPAFclick = ()=> {
+    navigate("/InternshipCoordinatorSPAF");
+  };
 
   return (
     <div>
@@ -29,7 +32,7 @@ function InternshipCoordinatorHome() {
           <FaUpload className="icon" />
           <div className="icon-text">Upload Document</div>
         </div>
-        <div className="big-div">
+        <div className="big-div" onClick={handleSPAFclick}>
           <FaCheckCircle className="icon" />
           <div className="icon-text">Verify Internship</div>
         </div>
