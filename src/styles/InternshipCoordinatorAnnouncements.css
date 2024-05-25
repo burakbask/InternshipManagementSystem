@@ -19,12 +19,21 @@
   display: none;
 }
 
-.document-list {
-  margin-top: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 15px;
+.announcements-container-internshipcoordinator {
+  padding: 20px 20px 0 20px; /* Reducing the top padding if needed */
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.announcements-list-internshipcoordinator {
+  margin-top: 10px; /* Reduced from 20px or more to 10px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .document-item {
