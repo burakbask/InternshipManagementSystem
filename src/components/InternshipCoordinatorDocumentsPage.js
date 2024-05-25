@@ -77,7 +77,7 @@ function InternshipCoordinatorDocumentsPage() {
               </div>
             ))
           ) : (
-            <p>There are no documents.</p>
+            <p className='p_header'>There are no documents.</p>
           )}
         </div>
         <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
