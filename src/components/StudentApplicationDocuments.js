@@ -25,9 +25,10 @@ function StudentApplicationDocuments() {
   };
 
   const fetchSsiDocument = () => {
-    axios.get('http://localhost:3000/api/student/viewSsiDocument')
+    axios.get('http://localhost:3000/api/student/viewSsi')
       .then(response => {
-        setSsiDocument(response.data); // Assuming the response contains the document directly
+        console.log(response.data);
+        setSsiDocument(response.data.ssi); // Assuming the response contains the document directly
       })
       .catch(error => {
         console.error('Error fetching SSI document:', error);
@@ -59,9 +60,7 @@ function StudentApplicationDocuments() {
               <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                 {doc.fileName}
               </a>
-              <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
-                Delete
-              </button>
+              
             </div>
           ))}
           {ssiDocument && (
@@ -69,9 +68,7 @@ function StudentApplicationDocuments() {
               <a className="document-link" href={`http://localhost:3000/api/commission/download/${ssiDocument.fileName}`} download={ssiDocument.fileName}>
                 {ssiDocument.fileName}
               </a>
-              <button className="delete-button" onClick={() => setSsiDocument(null)}> // Assuming you can delete the SSI document this way
-                Delete SSI Document
-              </button>
+              
             </div>
           )}
           {documents.length === 0 && !ssiDocument && <p>No documents found.</p>}

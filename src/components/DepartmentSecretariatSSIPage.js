@@ -12,36 +12,17 @@ function DepartmentSecretariatSSIPage() {
   }, []);
 
   const fetchSsis = () => {
-    axios.get('http://localhost:3000/api/secretariat/viewSSI')
+    axios.get('http://localhost:3000/api/deptSecretariat/viewSsis')
       .then(response => {
-        setSsis(response.data);
+        console.log(response.data);
+        // Assuming the actual SSI data is wrapped in a response object under 'ssi'
+        // Adjust based on the actual response structure
+        const ssiData = response.data.ssis ? response.data.ssis : [];
+        setSsis(Array.isArray(ssiData) ? ssiData : [ssiData]); // Ensures ssis is always an array
       })
       .catch(error => {
         console.error('Error fetching SSI documents:', error);
-      });
-  };
-
-  const handleApprove = (id) => {
-    axios.put(`http://localhost:3000/api/secretariat/updateSSIStatus`, { id: id })
-      .then(() => {
-        setSsis(prevSsis => 
-          prevSsis.filter(ssi => ssi.id !== id)
-        );
-      })
-      .catch(error => {
-        console.error('Error approving SSI document:', error);
-      });
-  };
-
-  const handleDecline = (id) => {
-    axios.delete(`http://localhost:3000/api/secretariat/deleteSSI/${id}`)
-      .then(() => {
-        setSsis(prevSsis => 
-          prevSsis.filter(ssi => ssi.id !== id)
-        );
-      })
-      .catch(error => {
-        console.error('Error declining SSI document:', error);
+        setSsis([]); // Handle error by setting an empty array
       });
   };
 
@@ -55,17 +36,13 @@ function DepartmentSecretariatSSIPage() {
       <div className="ssi-container">
         <h1>Pending SSI Documents</h1>
         <div className="ssi-list">
-        {ssis.length > 0 ? (
-            ssis.map(doc => (
-              <div key={doc.id} className="document-item">
-              
-              <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
-                {doc.fileName}
-              </a>
-                <div className="buttons-container">
-                  <button className="approve-button" onClick={() => handleApprove(doc.id)}>Approve</button>
-                  <button className="decline-button" onClick={() => handleDecline(doc.id)}>Decline</button>
-                </div>
+          {ssis.length > 0 ? (
+            ssis.map(ssi => (
+              <div key={ssi.id} className="document-item">
+                <p><strong>Student Email:</strong> {ssi.studentMail}</p>
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${ssi.fileName}`} download={ssi.fileName}>
+                  {ssi.fileName}
+                </a>
               </div>
             ))
           ) : (
@@ -80,4 +57,3 @@ function DepartmentSecretariatSSIPage() {
 }
 
 export default DepartmentSecretariatSSIPage;
-
