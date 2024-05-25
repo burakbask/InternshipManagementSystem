@@ -15,12 +15,14 @@ function AdminPendingAnnouncements() {
   const fetchAnnouncements = () => {
     axios.get('http://localhost:3000/api/admin/viewDocuments')
       .then(response => {
-        setAnnouncements(response.data);
+        // Filter out announcements where the status is true
+        const filteredAnnouncements = response.data.filter(announcement => !announcement.status);
+        setAnnouncements(filteredAnnouncements);
       })
       .catch(error => {
         console.error('Error fetching announcements:', error);
       });
-  };
+};
 
   const handleApprove = (id) => {
     axios.put(`http://localhost:3000/api/admin/updateAnnounceStatus`, { id: id })
