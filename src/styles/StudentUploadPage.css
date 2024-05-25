@@ -24,6 +24,19 @@
 .file-upload-input {
   display: none; /* Input element hidden */
 }
+.company-mail-label, .company-mail-input {
+  display: block; /* Makes the label and input take full width of their container */
+  width: 100%; /* Ensures full width to align properly */
+  max-width: 500px; /* Optional: Restricts the maximum width to keep form elements aligned nicely */
+  margin: 10px auto; /* Centers the label and input and adds vertical spacing */
+}
+
+.company-mail-input {
+  padding: 8px;
+  border: 2px solid #ccc; /* Adds a border for better visibility */
+  border-radius: 4px; /* Rounds the corners */
+  margin-top: 0; /* Removes any top margin to keep the label close */
+}
 
 .document-list {
   margin-top: 20px;

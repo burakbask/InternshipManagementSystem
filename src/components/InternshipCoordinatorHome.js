@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUpload, FaCheckCircle, FaBullhorn, FaFile } from 'react-icons/fa';
+import { FaUpload, FaCheckCircle, FaBullhorn } from 'react-icons/fa';
 import logo from '../assets/iyte_logo-tur.png';
 import '../styles/InternshipCoordinatorHome.css';
 import Calendar from 'react-calendar';
