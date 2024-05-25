@@ -40,10 +40,13 @@ function InternshipCoordinatorHome() {
           <FaBullhorn className="icon"  />
           <div className="icon-text">Announcements</div>
         </div>
+        {/*
         <div className="big-div">
           <FaFile className="icon" />
           <div className="icon-text">SSI Process</div>
         </div>
+      */}
+      
       </div>
       <div className='calendar-container'>
         <Calendar/>

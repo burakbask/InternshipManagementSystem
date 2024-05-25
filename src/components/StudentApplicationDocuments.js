@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
-import '../styles/StudentApplicationDocuments.css';
+import '../styles/StudentApplicationDocuments.css'; // Ensure this CSS path is correct
 
 function StudentApplicationDocuments() {
   const [documents, setDocuments] = useState([]);
@@ -16,11 +16,13 @@ function StudentApplicationDocuments() {
   const fetchDocuments = () => {
     axios.get('http://localhost:3000/api/student/viewSpafs')
       .then(response => {
-        setDocuments(Array.isArray(response.data.companySpafs) ? response.data.companySpafs : []);
+        // Ensure the response is an array and filter it if status is false to show feedback
+        const filteredDocuments = Array.isArray(response.data.companySpafs) ? response.data.companySpafs : [];
+        setDocuments(filteredDocuments);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
-        setDocuments([]);
+        setDocuments([]); // Handle error by setting an empty array
       });
   };
 
@@ -32,17 +34,6 @@ function StudentApplicationDocuments() {
       })
       .catch(error => {
         console.error('Error fetching SSI document:', error);
-      });
-  };
-
-  const handleDeleteDocument = (id) => {
-    axios.delete(`http://localhost:3000/api/student/delete/${id}`)
-      .then(() => {
-        const updatedDocuments = documents.filter(doc => doc.id !== id);
-        setDocuments(updatedDocuments);
-      })
-      .catch(error => {
-        console.error('Error deleting document:', error);
       });
   };
 
@@ -60,7 +51,10 @@ function StudentApplicationDocuments() {
               <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                 {doc.fileName}
               </a>
-              
+              {/* Conditionally display feedback status if the document status is false */}
+              {!doc.status && (
+                <p className="feedback-status">Declined. Feedback: {doc.feedback || "No feedback available"}</p>
+              )}
             </div>
           ))}
           {ssiDocument && (
@@ -68,7 +62,6 @@ function StudentApplicationDocuments() {
               <a className="document-link" href={`http://localhost:3000/api/commission/download/${ssiDocument.fileName}`} download={ssiDocument.fileName}>
                 {ssiDocument.fileName}
               </a>
-              
             </div>
           )}
           {documents.length === 0 && !ssiDocument && <p>No documents found.</p>}
