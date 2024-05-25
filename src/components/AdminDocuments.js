@@ -29,9 +29,9 @@ function AdminDocuments() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <div className="documents-container">
+      <div className="ims-container-admindocuments">
         <h1>Internship Documents</h1>
-        <div className="documents-list">
+        <div className="ims-list-admindocuments">
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">

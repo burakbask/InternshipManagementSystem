@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../styles/InternshipCoordinatorDocumentsPage.css'; // Create this CSS file for styling
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
+import '../styles/DepartmentSecretariatDocuments.css';
 
 function DepartmentSecretariatDocuments() {
   const [documents, setDocuments] = useState([]);
@@ -29,9 +29,9 @@ function DepartmentSecretariatDocuments() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <div className="documents-container">
+      <div className="deptsec-container">
         <h1>Internship Documents</h1>
-        <div className="documents-list">
+        <div className="deptsec-list">
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">

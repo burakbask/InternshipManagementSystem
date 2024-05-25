@@ -20,22 +20,22 @@
     margin: auto;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   }
-  
-  .documents-container {
-    padding: 20px;
-    min-height: calc(100vh - 120px); /* Adjust for full height minus navbar */
+
+  .ims-container-admindocuments {
+    padding: 20px 20px 0 20px; /* Reducing the top padding if needed */
+    min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .documents-list {
+  .ims-list-admindocuments {
+    margin-top: 10px; /* Reduced from 20px or more to 10px */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
     width: 100%;
-    flex-grow: 1; /* Make it take available height */
+    flex-grow: 1;
   }
   
   .document-adminitem {
