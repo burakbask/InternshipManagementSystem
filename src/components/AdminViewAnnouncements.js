@@ -35,7 +35,7 @@ function AdminViewAnnouncements() {
         <div className="admw-list">
         {announcements.length > 0 ? (
             announcements.map(announcement => (
-              <div key={announcement.id} className="document-item">
+              <div key={announcement.id} className="admwdocument-item">
                 <a className="document-link" href={`http://localhost:3000/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
                   {announcement.fileName}
                 </a>

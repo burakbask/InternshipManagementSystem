@@ -21,15 +21,16 @@
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.admv-container-admindocuments {
+.admw-container {
   padding: 20px 20px 0 20px; /* Reducing the top padding if needed */
   min-height: calc(100vh - 120px);
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
 
-.admv-list-admindocuments {
+.admw-list {
   margin-top: 10px; /* Reduced from 20px or more to 10px */
   display: flex;
   flex-direction: column;
@@ -40,16 +41,18 @@
 
 
 
-.document-item {
+.admwdocument-item {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
+  width: 40%;
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 10px;
 }
 
 .announcement-item h2 {
