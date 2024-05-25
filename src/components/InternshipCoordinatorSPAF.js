@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
 
 function InternshipCoordinatorSPAF() {
   const [spafs, setSpafs] = useState([]);
+  const [feedbacks, setFeedbacks] = useState({}); // State to store feedbacks
 
   useEffect(() => {
     fetchSpafs();
   }, []);
 
   const fetchSpafs = () => {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
-    axios.get('http://localhost:3000/api/commission/approve-application', {
-      headers: {
-        Authorization: `Bearer ${token}` // Set the Authorization header
-      }
+    const token = localStorage.getItem('token');
+    axios.get('http://localhost:3000/api/commission/viewSpafs', {
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then(response => {
-      setSpafs(response.data);
+      const filteredSpafs = response.data.filter(spaf => spaf.status !== true);
+      setSpafs(filteredSpafs);
     })
     .catch(error => {
       console.error('Error fetching SPAFs:', error);
@@ -27,16 +26,12 @@ function InternshipCoordinatorSPAF() {
   };
 
   const handleApprove = (id) => {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
-    axios.put(`http://localhost:3000/api/coordinator/updateSpafStatus`, { id: id }, {
-      headers: {
-        Authorization: `Bearer ${token}` // Set the Authorization header
-      }
+    const token = localStorage.getItem('token');
+    axios.post(`http://localhost:3000/api/commission/approve-application`, { companySpafId: id }, {
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then(() => {
-      setSpafs(prevSpafs => 
-        prevSpafs.filter(spaf => spaf.id !== id)
-      );
+      setSpafs(prevSpafs => prevSpafs.filter(spaf => spaf.id !== id));
     })
     .catch(error => {
       console.error('Error approving SPAF:', error);
@@ -44,20 +39,21 @@ function InternshipCoordinatorSPAF() {
   };
 
   const handleDecline = (id) => {
-    const token = localStorage.getItem('token'); // Retrieve token from localStorage
-    axios.delete(`http://localhost:3000/api/coordinator/deleteSpaf/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}` // Set the Authorization header
-      }
+    const token = localStorage.getItem('token');
+    const feedback = feedbacks[id];
+    axios.post(`http://localhost:3000/api/commission/reject-application/${id}`, { feedback:feedback }, {
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then(() => {
-      setSpafs(prevSpafs => 
-        prevSpafs.filter(spaf => spaf.id !== id)
-      );
+      setSpafs(prevSpafs => prevSpafs.filter(spaf => spaf.id !== id));
     })
     .catch(error => {
       console.error('Error declining SPAF:', error);
     });
+  };
+
+  const updateFeedback = (id, value) => {
+    setFeedbacks(prevFeedbacks => ({ ...prevFeedbacks, [id]: value }));
   };
 
   return (
@@ -73,10 +69,17 @@ function InternshipCoordinatorSPAF() {
           {spafs.length > 0 ? (
             spafs.map(spaf => (
               <div key={spaf.id} className="spaf-item">
-                <h2>SPAF: {spaf.id}</h2>
-                
+                <h2>SPAF: {spaf.fileName}</h2>
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${spaf.fileName}`} download={spaf.fileName}>{spaf.fileName}</a>
                 <p>You can view SPAF details.</p>
                 <p><small>{new Date(spaf.date).toLocaleString()}</small></p>
+                <input
+                  type="text"
+                  placeholder="Enter feedback"
+                  value={feedbacks[spaf.id] || ''}
+                  onChange={e => updateFeedback(spaf.id, e.target.value)}
+                  className="feedback-input"
+                />
                 <div className="buttons-container">
                   <button className="approve-button" onClick={() => handleApprove(spaf.id)}>Approve</button>
                   <button className="decline-button" onClick={() => handleDecline(spaf.id)}>Decline</button>
