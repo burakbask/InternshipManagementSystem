@@ -70,10 +70,10 @@ function InternshipCoordinatorSPAF() {
           {spafs.length > 0 ? (
             spafs.map(spaf => (
               <div key={spaf.id} className="spaf-item">
-                <h2>SPAF: {spaf.fileName}</h2>
+                <h2>{spaf.studentMail} SPAF Document</h2>
                 <a className="document-link" href={`http://localhost:3000/api/commission/download/${spaf.fileName}`} download={spaf.fileName}>{spaf.fileName}</a>
                 <p>You can view SPAF details.</p>
-                <p><small>{new Date(spaf.date).toLocaleString()}</small></p>
+                
                 <input
                   type="text"
                   placeholder="Enter feedback"
@@ -97,5 +97,6 @@ function InternshipCoordinatorSPAF() {
     </div>
   );
 }
+
 
 export default InternshipCoordinatorSPAF;
