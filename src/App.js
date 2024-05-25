@@ -22,6 +22,8 @@ import CompanyDocuments from './components/CompanyDocuments';
 import StudentApplicationDocuments from './components/StudentApplicationDocuments';
 import DepartmentSecretariatSSIPage from './components/DepartmentSecretariatSSIPage';
 import DepartmentSecretariatDocuments from './components/DepartmentSecretariatDocuments';
+import CompanyApplicationForm from './components/CompanyApplicationForm';
+import InternshipCoordinatorSPAF from './components/InternshipCoordinatorSPAF';
 
 function App() {
   return (
@@ -30,6 +32,16 @@ function App() {
         <Route path='/InternshipCoordinatorAnnouncements' element={
           <ProtectedRoute allowedRoles={['commission']}>
             <InternshipCoordinatorAnnouncements />
+          </ProtectedRoute>
+        } />
+         <Route path='/InternshipCoordinatorSPAF' element={
+          <ProtectedRoute allowedRoles={['commission']}>
+            <InternshipCoordinatorSPAF />
+          </ProtectedRoute>
+        } />
+        <Route path='/CompanyApplicationForm' element={
+          <ProtectedRoute allowedRoles={['company']}>
+            <CompanyApplicationForm />
           </ProtectedRoute>
         } />
         <Route path='/StudentApplicationDocuments' element={

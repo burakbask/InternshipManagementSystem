@@ -8,6 +8,7 @@ import '../styles/StudentUploadPage.css';
 
 function StudentUploadPage() {
   const [documents, setDocuments] = useState([]);
+  const [companyMail, setCompanyMail] = useState(''); // State for company email
 
   useEffect(() => {
     fetchDocuments();
@@ -35,25 +36,32 @@ function StudentUploadPage() {
   };
 
   const handleFileUpload = (event) => {
-    const files = event.target.files;
+    const file = event.target.files[0]; // Sadece ilk dosyayı al
     const formData = new FormData();
-    Array.from(files).forEach(file => {
-      formData.append('files', file);
-    });
-
-    axios.post('http://localhost:3000/api/student/upload', formData, {
+    formData.append('file', file); // Tek dosya ekle
+    formData.append('companyMail', companyMail); // Append company email to form data
+  
+    // Retrieve the token from storage
+    const authToken = localStorage.getItem('authToken'); // Replace 'authToken' with your actual token key
+  
+    axios.post('http://localhost:3000/api/student/uploadSpaf', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${authToken}` // Include the token in the Authorization header
       },
     })
     .then(response => {
       console.log(`File upload success:`, response.data);
+      alert('File upload success!'); // Başarılı yükleme uyarısı
       fetchDocuments();
     })
     .catch(error => {
       console.error(`File upload error:`, error);
+      alert('File upload failed!'); // Hata durumunda uyarı
     });
   };
+  
+  
 
   return (
     <div>
@@ -79,12 +87,27 @@ function StudentUploadPage() {
             <p className='p_header'>There are no documents.</p>
           )}
         </div>
+        <label htmlFor="company-mail" className="company-mail-label">Company Email</label>
+        <input 
+          type="email" 
+          id="company-mail" 
+          value={companyMail} 
+          onChange={(e) => setCompanyMail(e.target.value)} 
+          className="company-mail-input" 
+          placeholder="Enter company email"
+        />
         <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
-        <input type="file" id="file-upload" accept=".pdf" multiple onChange={handleFileUpload} className="file-upload-input"/>
+        <input 
+          type="file" 
+          id="file-upload" 
+          accept=".pdf" 
+          multiple 
+          onChange={handleFileUpload} 
+          className="file-upload-input"
+        />
       </div>
     </div>
   );
 }
 
 export default StudentUploadPage;
-
