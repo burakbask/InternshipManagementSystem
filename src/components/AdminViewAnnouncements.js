@@ -30,9 +30,9 @@ function AdminViewAnnouncements() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <div className="announcements-container">
+      <div className="admw-container">
         <h1>Approved Announcements</h1>
-        <div className="announcements-list">
+        <div className="admw-list">
         {announcements.length > 0 ? (
             announcements.map(announcement => (
               <div key={announcement.id} className="document-item">

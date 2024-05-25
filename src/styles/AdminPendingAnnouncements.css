@@ -4,7 +4,11 @@
   align-items: center;
   padding: 20px;
 }
-
+.announcements-container {
+  max-width: 30%; /* Limit max width to 80% of the screen width */
+  margin: auto; /* Center the container horizontally */
+  padding: 20px;
+}
 .file-upload-label {
   margin-top: 20px;
   cursor: pointer;
@@ -19,25 +23,40 @@
   display: none; /* Input elemanı gizleniyor */
 }
 
-.document-list {
+.addocument-list {
+  display: flex;
+  flex-direction: column; /* Ensures items are stacked vertically */
+  align-items: center; /* Centers items horizontally */
   margin-top: 20px;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for each document list */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 15px;
+  width: 100%; /* Adjust width as necessary */
 }
 
-.document-item {
+.addocument-item {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Stack content within each item vertically */
+  align-items: center; /* Center content within each item */
   justify-content: space-between;
+  width: 100%; /* Full width */
   padding: 10px;
-  border-bottom: 1px solid #ddd; /* Separator between documents */
-  position: relative; /* Added to serve as reference for absolute positioning */
+  border-bottom: 1px solid #ddd;
+  margin: 5px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.document-item:last-child {
+.addocument-item:last-child {
   border-bottom: none; /* Remove border for the last item */
+}
+.buttons-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+.approve-button, .decline-button {
+  flex: 1; /* Buttons take equal space */
+  padding: 5px 10px; /* Padding for better touch */
 }
 
 .document-link {
@@ -66,6 +85,7 @@ transform: translateY(-50%); /* Center vertically */
 width: 80px; /* Fixed width */
 height: 30px; /* Fixed height */
 }
+
 
 .delete-button:hover {
   background-color: #e53e30; /* Darker red on hover */
