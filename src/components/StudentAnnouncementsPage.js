@@ -30,9 +30,9 @@ function StudentAnnouncementsPage() {
         <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
         <Link to="/" className="logout-button">Log Out</Link>
       </nav>
-      <div className="announcements-container">
+      <div className="announcements-container-student">
         <h1>Announcements</h1>
-        <div className="announcements-list">
+        <div className="announcements-list-student">
         {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
