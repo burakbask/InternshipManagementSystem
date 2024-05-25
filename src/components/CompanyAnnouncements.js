@@ -79,7 +79,7 @@ function CompanyAnnouncements() {
                 )}
                 <input type="file" id="file-upload" accept=".pdf" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }}/>
                 <button className="announcement-button" onClick={handleFileSelectAndUpload}>
-                    Upload Document
+                    Announce
                 </button>
             </div>
         </div>
