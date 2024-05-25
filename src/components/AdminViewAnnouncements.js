@@ -33,12 +33,13 @@ function AdminViewAnnouncements() {
       <div className="announcements-container">
         <h1>Approved Announcements</h1>
         <div className="announcements-list">
-          {announcements.length > 0 ? (
+        {announcements.length > 0 ? (
             announcements.map(announcement => (
-              <div key={announcement.id} className="announcement-item">
-                <h2>Announcement Id:{announcement.id}</h2>
-                <p>You can view announcement.</p>
-                <p><small>{new Date(announcement.date).toLocaleString()}</small></p>
+              <div key={announcement.id} className="document-item">
+                <a className="document-link" href={`http://localhost:3000/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
+                  {announcement.fileName}
+                </a>
+                
               </div>
             ))
           ) : (
