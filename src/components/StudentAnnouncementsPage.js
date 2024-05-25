@@ -3,7 +3,7 @@ import '../styles/StudentAnnouncementsPage.css';
 import axios from 'axios';
 import logo from '../assets/iyte_logo-tur.png';
 import { Link } from 'react-router-dom';
-import internshipImage from '../assets/internshipimage.webp'; // Update the path to the new image file
+
 
 function StudentAnnouncementsPage() {
   const [documents, setAnnouncements] = useState([]);

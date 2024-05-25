@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import logo from '../assets/iyte_logo-tur.png';
+import '../styles/CompanyUploadPage.css';
 
 function CompanyApplicationForm() {
   const [documents, setDocuments] = useState([]);
@@ -45,7 +48,7 @@ function CompanyApplicationForm() {
     })
     .then(response => {
       console.log(`File upload success:`, response.data);
-      alert("File uploaded successfully'")
+      alert("File uploaded successfully'");
       fetchDocuments(); // Refresh the document list
     })
     .catch(error => {
@@ -59,6 +62,11 @@ function CompanyApplicationForm() {
 
   return (
     <div>
+      <nav className="navbar">
+        <img src={logo} className='logo' alt="Logo" />
+        <p className='ims-header'>INTERNSHIP MANAGEMENT SYSTEM</p>
+        <Link to="/" className="logout-button">Log Out</Link>
+      </nav>
       <h1>Company Application Documents</h1>
       {documents.length > 0 ? (
         documents.map(doc => (
