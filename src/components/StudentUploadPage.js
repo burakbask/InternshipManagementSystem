@@ -9,19 +9,22 @@ import '../styles/StudentUploadPage.css';
 function StudentUploadPage() {
   const [documents, setDocuments] = useState([]);
   const [companyMail, setCompanyMail] = useState(''); // State for company email
+  const [uploadError, setUploadError] = useState(''); // State for upload error messages
 
   useEffect(() => {
     fetchDocuments();
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('http://localhost:3000/api/student/viewDocuments')
+    axios.get('http://localhost:3000/api/student/viewSpafs')
       .then(response => {
-        console.log('Fetched documents:', response.data);
-        setDocuments(response.data);
+        // Ensure the response is an array and filter it if status is false to show feedback
+        const filteredDocuments = Array.isArray(response.data.companySpafs) ? response.data.companySpafs : [];
+        setDocuments(filteredDocuments);
       })
       .catch(error => {
         console.error('Error fetching documents:', error);
+        setDocuments([]); // Handle error by setting an empty array
       });
   };
 
@@ -36,32 +39,40 @@ function StudentUploadPage() {
   };
 
   const handleFileUpload = (event) => {
-    const file = event.target.files[0]; // Sadece ilk dosyayı al
+    if (!companyMail) {
+      setUploadError('Please enter a company email before uploading documents.');
+      return;
+    }
+
+    const file = event.target.files[0];
+    if (!file) {
+      setUploadError('Please select a file to upload.');
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('file', file); // Tek dosya ekle
-    formData.append('companyMail', companyMail); // Append company email to form data
-  
-    // Retrieve the token from storage
-    const authToken = localStorage.getItem('authToken'); // Replace 'authToken' with your actual token key
-  
+    formData.append('file', file);
+    formData.append('companyMail', companyMail);
+
+    const authToken = localStorage.getItem('authToken');
+
     axios.post('http://localhost:3000/api/student/uploadSpaf', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${authToken}` // Include the token in the Authorization header
+        'Authorization': `Bearer ${authToken}`
       },
     })
     .then(response => {
       console.log(`File upload success:`, response.data);
-      alert('File upload success!'); // Başarılı yükleme uyarısı
+      alert('File upload success!');
       fetchDocuments();
+      setUploadError(''); // Clear any error messages
     })
     .catch(error => {
       console.error(`File upload error:`, error);
-      alert('File upload failed!'); // Hata durumunda uyarı
+      alert('File upload failed!');
     });
   };
-  
-  
 
   return (
     <div>
@@ -92,10 +103,11 @@ function StudentUploadPage() {
           type="email" 
           id="company-mail" 
           value={companyMail} 
-          onChange={(e) => setCompanyMail(e.target.value)} 
+          onChange={(e) => { setCompanyMail(e.target.value); setUploadError(''); }} 
           className="company-mail-input" 
           placeholder="Enter company email"
         />
+        {uploadError && <p className="upload-error">{uploadError}</p>}
         <label htmlFor="file-upload" className="file-upload-label">Upload Document</label>
         <input 
           type="file" 
