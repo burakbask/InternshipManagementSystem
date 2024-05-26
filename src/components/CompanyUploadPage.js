@@ -14,7 +14,7 @@ function CompanyUploadPage() {
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('http://localhost:3000/api/company/viewDocuments')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/company/viewDocuments')
       .then(response => {
         console.log('Fetched documents:', response.data);
         setDocuments(response.data);
@@ -25,7 +25,7 @@ function CompanyUploadPage() {
   };
 
   const handleDeleteDocument = (id) => {
-    axios.delete(`http://localhost:3000/api/company/delete/${id}`)
+    axios.delete(`https://internshipmanagementsystem.onrender.com/api/company/delete/${id}`)
       .then(() => {
         fetchDocuments();
       })
@@ -41,7 +41,7 @@ function CompanyUploadPage() {
       formData.append('files', file);
     });
 
-    axios.post('http://localhost:3000/api/company/upload', formData, {
+    axios.post('https://internshipmanagementsystem.onrender.com/api/company/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -67,7 +67,7 @@ function CompanyUploadPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/company/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/company/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>

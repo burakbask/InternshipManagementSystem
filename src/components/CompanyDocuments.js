@@ -12,7 +12,7 @@ function CompanyDocuments() {
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('http://localhost:3000/api/commission/viewDocuments')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/commission/viewDocuments')
       .then(response => {
         console.log('Fetched documents:', response.data); // Log the fetched data
         setDocuments(response.data);
@@ -35,7 +35,7 @@ function CompanyDocuments() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 

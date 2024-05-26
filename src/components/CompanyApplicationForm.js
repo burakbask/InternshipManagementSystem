@@ -12,7 +12,7 @@ function CompanyApplicationForm() {
 
   const fetchDocuments = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/company/viewStudentSpafs', {
+      const response = await axios.get('https://internshipmanagementsystem.onrender.com/api/company/viewStudentSpafs', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -40,7 +40,7 @@ function CompanyApplicationForm() {
     formData.append('studentMail', email);
 
     const token = localStorage.getItem('token');
-    axios.post('http://localhost:3000/api/company/uploadCompanySpaf', formData, {
+    axios.post('https://internshipmanagementsystem.onrender.com/api/company/uploadCompanySpaf', formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
@@ -71,7 +71,7 @@ function CompanyApplicationForm() {
       {documents.length > 0 ? (
         documents.map(doc => (
           <div key={doc.id} className="document-item">
-            <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+            <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${doc.fileName}`} download={doc.fileName}>
               {doc.fileName}
             </a>
           </div>

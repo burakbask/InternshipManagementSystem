@@ -12,7 +12,7 @@ function DepartmentSecretariatSSIPage() {
   }, []);
 
   const fetchSsis = () => {
-    axios.get('http://localhost:3000/api/deptSecretariat/viewSsis')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/deptSecretariat/viewSsis')
       .then(response => {
         console.log(response.data);
         // Assuming the actual SSI data is wrapped in a response object under 'ssi'
@@ -40,7 +40,7 @@ function DepartmentSecretariatSSIPage() {
             ssis.map(ssi => (
               <div key={ssi.id} className="document-item">
                 <p><strong>Student Email:</strong> {ssi.studentMail}</p>
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${ssi.fileName}`} download={ssi.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${ssi.fileName}`} download={ssi.fileName}>
                   {ssi.fileName}
                 </a>
               </div>

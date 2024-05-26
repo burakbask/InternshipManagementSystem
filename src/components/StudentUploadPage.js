@@ -16,7 +16,7 @@ function StudentUploadPage() {
   }, []);
 
   const fetchDocuments = () => {
-    axios.get('http://localhost:3000/api/student/viewSpafs')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/student/viewSpafs')
       .then(response => {
         // Ensure the response is an array and filter it if status is false to show feedback
         const filteredDocuments = Array.isArray(response.data.companySpafs) ? response.data.companySpafs : [];
@@ -29,7 +29,7 @@ function StudentUploadPage() {
   };
 
   const handleDeleteDocument = (id) => {
-    axios.delete(`http://localhost:3000/api/student/delete/${id}`)
+    axios.delete(`https://internshipmanagementsystem.onrender.com/api/student/delete/${id}`)
       .then(() => {
         fetchDocuments();
       })
@@ -56,7 +56,7 @@ function StudentUploadPage() {
 
     const authToken = localStorage.getItem('authToken');
 
-    axios.post('http://localhost:3000/api/student/uploadSpaf', formData, {
+    axios.post('https://internshipmanagementsystem.onrender.com/api/student/uploadSpaf', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${authToken}`
@@ -86,7 +86,7 @@ function StudentUploadPage() {
           {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                 

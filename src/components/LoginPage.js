@@ -15,7 +15,7 @@ function LoginPage() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/login', {
+      const response = await axios.post('https://internshipmanagementsystem.onrender.com/api/login', {
         email,
         password,
       });

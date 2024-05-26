@@ -13,7 +13,7 @@ function AdminViewAnnouncements() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/admin/viewApprovedDocuments')
       .then(response => {
         const filteredAnnouncements = response.data.filter(announcement => announcement.status === true);
         setAnnouncements(filteredAnnouncements);
@@ -36,7 +36,7 @@ function AdminViewAnnouncements() {
         {announcements.length > 0 ? (
             announcements.map(announcement => (
               <div key={announcement.id} className="admwdocument-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
                   {announcement.fileName}
                 </a>
                 
