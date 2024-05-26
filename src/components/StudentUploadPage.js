@@ -89,9 +89,7 @@ function StudentUploadPage() {
                 <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
-                <button className="delete-button" onClick={() => handleDeleteDocument(doc.id)}>
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </button>
+                
               </div>
             ))
           ) : (
