@@ -14,7 +14,7 @@ function CompanyAnnouncements() {
     }, []);
 
     const fetchDocuments = () => {
-        axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
+        axios.get('https://internshipmanagementsystem.onrender.com/api/admin/viewApprovedDocuments')
         .then(response => {
             setDocuments(response.data);
         })
@@ -40,7 +40,7 @@ function CompanyAnnouncements() {
       // Retrieve the token from storage
       const authToken = localStorage.getItem('authToken'); // Replace 'authToken' with your actual token key
   
-      axios.post('http://localhost:3000/api/company/upload', formData, {
+      axios.post('https://internshipmanagementsystem.onrender.com/api/company/upload', formData, {
           headers: {
               'Content-Type': 'multipart/form-data',
               'Authorization': `Bearer ${authToken}`  // Include the token in the Authorization header
@@ -69,7 +69,7 @@ function CompanyAnnouncements() {
             {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
                         </div>

@@ -14,7 +14,7 @@ function InternshipCoordinatorSPAF() {
 
   const fetchSpafs = () => {
     const token = localStorage.getItem('token');
-    axios.get('http://localhost:3000/api/commission/viewSpafs', {
+    axios.get('https://internshipmanagementsystem.onrender.com/api/commission/viewSpafs', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(response => {
@@ -28,7 +28,7 @@ function InternshipCoordinatorSPAF() {
 
   const handleApprove = (id) => {
     const token = localStorage.getItem('token');
-    axios.post(`http://localhost:3000/api/commission/approve-application`, { companySpafId: id }, {
+    axios.post(`https://internshipmanagementsystem.onrender.com/api/commission/approve-application`, { companySpafId: id }, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(() => {
@@ -42,7 +42,7 @@ function InternshipCoordinatorSPAF() {
   const handleDecline = (id) => {
     const token = localStorage.getItem('token');
     const feedback = feedbacks[id];
-    axios.post(`http://localhost:3000/api/commission/reject-application/${id}`, { feedback:feedback }, {
+    axios.post(`https://internshipmanagementsystem.onrender.com/api/commission/reject-application/${id}`, { feedback:feedback }, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(() => {
@@ -71,7 +71,7 @@ function InternshipCoordinatorSPAF() {
             spafs.map(spaf => (
               <div key={spaf.id} className="spaf-item">
                 <h2>{spaf.studentMail} SPAF Document</h2>
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${spaf.fileName}`} download={spaf.fileName}>{spaf.fileName}</a>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${spaf.fileName}`} download={spaf.fileName}>{spaf.fileName}</a>
                 <p>You can view SPAF details.</p>
                 
                 <input

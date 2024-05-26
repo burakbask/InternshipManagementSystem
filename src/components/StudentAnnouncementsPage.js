@@ -13,7 +13,7 @@ function StudentAnnouncementsPage() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/admin/viewApprovedDocuments')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/admin/viewApprovedDocuments')
       .then(response => {
         const filteredAnnouncements = response.data.filter(announcement => announcement.status === true);
         setAnnouncements(filteredAnnouncements);
@@ -36,7 +36,7 @@ function StudentAnnouncementsPage() {
         {documents.length > 0 ? (
             documents.map(doc => (
               <div key={doc.id} className="document-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${doc.fileName}`} download={doc.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${doc.fileName}`} download={doc.fileName}>
                   {doc.fileName}
                 </a>
               </div>

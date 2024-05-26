@@ -12,7 +12,7 @@ function AdminPendingAnnouncements() {
   }, []);
 
   const fetchAnnouncements = () => {
-    axios.get('http://localhost:3000/api/admin/viewDocuments')
+    axios.get('https://internshipmanagementsystem.onrender.com/api/admin/viewDocuments')
       .then(response => {
         // Filter out announcements where the status is true
         const filteredAnnouncements = response.data.filter(announcement => !announcement.status);
@@ -24,7 +24,7 @@ function AdminPendingAnnouncements() {
 };
 
   const handleApprove = (id) => {
-    axios.put(`http://localhost:3000/api/admin/updateAnnounceStatus`, { id: id })
+    axios.put(`https://internshipmanagementsystem.onrender.com/api/admin/updateAnnounceStatus`, { id: id })
       .then(() => {
         setAnnouncements(prevAnnouncements => 
           prevAnnouncements.filter(announcement => announcement.id !== id)
@@ -36,7 +36,7 @@ function AdminPendingAnnouncements() {
   };
 
   const handleDecline = (id) => {
-    axios.delete(`http://localhost:3000/api/admin/delete/${id}`)
+    axios.delete(`https://internshipmanagementsystem.onrender.com/api/admin/delete/${id}`)
       .then(() => {
         setAnnouncements(prevAnnouncements => 
           prevAnnouncements.filter(announcement => announcement.id !== id)
@@ -60,7 +60,7 @@ function AdminPendingAnnouncements() {
         {announcements.length > 0 ? (
             announcements.map(announcement => (
               <div key={announcement.id} className="addocument-item">
-                <a className="document-link" href={`http://localhost:3000/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
+                <a className="document-link" href={`https://internshipmanagementsystem.onrender.com/api/commission/download/${announcement.fileName}`} download={announcement.fileName}>
                   {announcement.fileName}
                 </a>
                 <div className="buttons-container">
